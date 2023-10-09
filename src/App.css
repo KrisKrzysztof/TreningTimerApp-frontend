@@ -16,13 +16,16 @@
   color: #00000066
 }
 
-.App-header {
+.App-header {;
   background-color: #750628;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
   font-size: calc(1px + 2vmin);
   color: white;
+}
+.header-element {
+  padding-inline: 1em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
