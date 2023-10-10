@@ -9,13 +9,6 @@
   color: #FFFFFF90;
 }
 
-.edit-navi {
-  cursor: pointer;
-}
-.edit-navi:hover {
-  color: #00000066
-}
-
 .App-header {;
   background-color: #750628;
   align-items: center;
@@ -25,7 +18,16 @@
   color: white;
 }
 .header-element {
-  padding-inline: 1em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin: 1.5em;
+}
+
+.title {
+  margin: 0.5em;
+  font-size: 2em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
