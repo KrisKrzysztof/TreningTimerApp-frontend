@@ -3,30 +3,36 @@
 }
 
 .navi {
-  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
 }
 .navi:hover {
-  color: #FFFFFF90;
+  color: #5d5d5d;
 }
 
-.App-header {;
+.App-header {
+  color: white;
   background-color: #750628;
+  padding-inline: 3em;
   align-items: center;
   display: flex;
   justify-content: space-between;
   font-size: calc(1px + 2vmin);
-  color: white;
 }
 .header-element {
-  font-weight: bold;
   color: white;
+  font-weight: bold;
   text-decoration: none;
-  font-size: 1.2em;
-  margin: 1.5em;
+  font-size: 1.1em;
+  margin: 3em;
+}
+.header-element:hover {
+  color: #bebebe;
 }
 
 .title {
-  margin: 0.5em;
+  margin: 1em;
   font-size: 2em;
 }
 

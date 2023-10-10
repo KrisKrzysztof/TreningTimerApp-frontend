@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import {Training} from "./components/Training";
-import {Add} from "./components/Edit/Add";
+import {Training} from "./components/Training/Training";
+import {Add} from "./components/edit/Add";
 import {Header} from "./components/layout/Header";
-import {MainPage} from "./components/MainPage";
-import {EditPage} from "./components/Edit/EditPage";
-import {Modify} from "./components/Edit/Modify";
-import {AddExercise} from "./components/Edit/AddExercise";
-import {ModifyExercise} from "./components/Edit/ModifyExercise";
+import {MainPage} from "./components/layout/MainPage";
+import {EditPage} from "./components/edit/EditPage";
+import {Modify} from "./components/edit/Modify";
+import {AddExercise} from "./components/edit/AddExercise";
+import {ModifyExercise} from "./components/edit/ModifyExercise";
 
 export const App = () => (
     <div className="App">
