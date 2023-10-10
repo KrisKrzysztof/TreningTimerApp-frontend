@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+/*p {*/
+/*  max-width: 40em;*/
+/*  text-align: center;*/
+/*}*/
+
 .navi {
   color: black;
   font-weight: bold;
@@ -35,6 +40,19 @@
   margin: 1em;
   font-size: 2em;
 }
+
+.page {
+  margin-block: 3em;
+  margin-inline: 8em;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
