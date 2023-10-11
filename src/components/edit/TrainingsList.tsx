@@ -1,26 +1,13 @@
-import {useEffect, useState} from "react";
 import { TrainingEntity } from "types";
-import {apiUrl} from "../../config/api";
 
 interface Props {
     details: boolean;
+    trainingList: TrainingEntity[];
 }
 
-export const TrainingsList = (props: Props) => {
-    const [trainings, setTrainings] = useState<TrainingEntity[]>([]);
-
-    useEffect(() => {
-        (async () => {
-            const res = await fetch(`${apiUrl}/trainings`);
-            const data = await res.json();
-
-            setTrainings(data);
-
-        })();
-    }, []);
-
-  return <ul>
-      {trainings.map(training =>
+export const TrainingsList = (props: Props) =>
+    <ul>
+      {props.trainingList.map(training =>
           <li key={training.id}>
               <p><strong>{training.name}</strong><br/>{training.description || 'Brak opisu.'}</p>
               {props.details ?
@@ -43,4 +30,3 @@ export const TrainingsList = (props: Props) => {
           </li>
       )}
   </ul>
-}

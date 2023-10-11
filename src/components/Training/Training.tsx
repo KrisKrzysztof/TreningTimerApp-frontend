@@ -1,5 +1,15 @@
-export const Training = () => {
+import { TrainingEntity } from "types";
+import {TrainingsList} from "../edit/TrainingsList";
+
+interface Props {
+    trainingList: TrainingEntity[];
+}
+export const Training = (props: Props) => {
+
     return <div>
-        <h1>Trening</h1>
+        <h3>Oto Lista dostępnych treningów wraz ze szczegółami.</h3>
+        <TrainingsList
+            trainingList={props.trainingList}
+            details={true}/>
     </div>
 }

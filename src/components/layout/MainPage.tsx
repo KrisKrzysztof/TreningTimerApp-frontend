@@ -1,6 +1,11 @@
+import { TrainingEntity } from "types";
 import {TrainingsList} from "../edit/TrainingsList";
 
-export const MainPage = () =>
+interface Props {
+    trainingList: TrainingEntity[];
+}
+
+export const MainPage = (props: Props) =>
     <div className="page">
         <h1>To jest strona główna</h1>
         <p>Znajdziesz tu podgląd dostępnych treningów.</p>
@@ -10,5 +15,7 @@ export const MainPage = () =>
             menu.</p>
         <h2>WYBIERZ Z MENU U GÓRY CO CHCESZ ZROBIĆ</h2>
         <p>Oto aktualna lista treningów z krótkim opisem (jeśli dodano):</p>
-        <TrainingsList details={false}/>
+        <TrainingsList
+            trainingList={props.trainingList}
+            details={false}/>
     </div>
