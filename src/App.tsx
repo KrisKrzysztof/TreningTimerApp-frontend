@@ -13,7 +13,7 @@ import {apiUrl} from "./config/api";
 import { TrainingEntity } from 'types';
 
 export const App = () => {
-    const [trainings, setTrainings] = useState<TrainingEntity[]>([]);
+    const [trainings, setTrainings] = useState<TrainingEntity[] | null>(null);
 
     useEffect(() => {
         (async () => {
@@ -24,6 +24,7 @@ export const App = () => {
 
         })();
     }, []);
+
 
     return <div className="App">
         <Header/>
