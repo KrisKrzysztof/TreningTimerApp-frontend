@@ -13,7 +13,7 @@ import {apiUrl} from "./config/api";
 import { TrainingEntity } from 'types';
 
 export const App = () => {
-    const [trainings, setTrainings] = useState<TrainingEntity[] | null>(null);
+    const [trainings, setTrainings] = useState<TrainingEntity[]>([]);
 
     useEffect(() => {
         (async () => {

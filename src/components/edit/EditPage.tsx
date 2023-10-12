@@ -1,5 +1,5 @@
 export const EditPage = () =>
-    <div>
+    <div className="page">
         <a className="navi"
            href="/edit/add">Stwórz nowy trening</a><br/>
         <a className="navi"

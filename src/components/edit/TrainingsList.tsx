@@ -3,12 +3,12 @@ import React from "react";
 
 interface Props {
     details: boolean;
-    trainingList: TrainingEntity[] | null;
+    trainingList: TrainingEntity[];
 }
 
 export const TrainingsList = (props: Props) => {
 
-    if (!props.trainingList) {
+    if (props.trainingList[0] === undefined) {
         return <p>[ Ładowanie... ]</p>
     }
 
@@ -18,21 +18,20 @@ export const TrainingsList = (props: Props) => {
                 <p><strong>{training.name}</strong><br/>{training.description ||
                     'Brak opisu.'}</p>
                 {props.details ?
-                    <p>
+                    <small>
                         Trening składa się z {training.numberOfSeries} serii.<br/>
                         Jedna seria składa się z następujących ćwiczeń:<br/>
-                        <li>{training.exerciseOne}</li>
-                        <li>{training.exerciseOne}</li>
-                        <li>{training.exerciseTwo}</li>
-                        <li>{training.exerciseThree}</li>
-                        <li>{training.exerciseFour}</li>
-                        <li>{training.exerciseFive}</li>
-                        <li>{training.exerciseSix}</li>
-                        <li>{training.exerciseSeven}</li>
-                        <li>{training.exerciseEight}</li>
-                        <li>{training.exerciseNine}</li>
-                        <li>{training.exerciseTen}</li>
-                    </p>
+                        {training.exerciseOne ? <p>{training.exerciseOne}</p> : null}
+                        {training.exerciseTwo ? <p>{training.exerciseTwo}</p> : null}
+                        {training.exerciseThree ? <p>{training.exerciseThree}</p> : null}
+                        {training.exerciseFour ? <p>{training.exerciseFour}</p> : null}
+                        {training.exerciseFive ? <p>{training.exerciseFive}</p> : null}
+                        {training.exerciseSix ? <p>{training.exerciseSix}</p> : null}
+                        {training.exerciseSeven ? <p>{training.exerciseSeven}</p> : null}
+                        {training.exerciseEight ? <p>{training.exerciseEight}</p> : null}
+                        {training.exerciseNine ? <p>{training.exerciseNine}</p> : null}
+                        {training.exerciseTen ? <p>{training.exerciseTen}</p> : null}
+                    </small>
                     : null}
             </li>
         )}

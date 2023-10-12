@@ -2,7 +2,7 @@ import { TrainingEntity } from "types";
 import {TrainingsList} from "../edit/TrainingsList";
 
 interface Props {
-    trainingList: TrainingEntity[] | null;
+    trainingList: TrainingEntity[];
 }
 
 export const MainPage = (props: Props) =>
