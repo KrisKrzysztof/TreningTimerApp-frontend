@@ -18,9 +18,9 @@ export const TrainingsList = (props: Props) => {
                 <p><strong>{training.name}</strong><br/>{training.description ||
                     'Brak opisu.'}</p>
                 {props.details ?
-                    <small>
-                        Trening składa się z {training.numberOfSeries} serii.<br/>
-                        Jedna seria składa się z następujących ćwiczeń:<br/>
+                    <small className="exercises-list">
+                        <p>Trening składa się z {training.numberOfSeries} serii.<br/>
+                            Jedna seria składa się z następujących ćwiczeń:<br/></p>
                         {training.exerciseOne ? <p>{training.exerciseOne}</p> : null}
                         {training.exerciseTwo ? <p>{training.exerciseTwo}</p> : null}
                         {training.exerciseThree ? <p>{training.exerciseThree}</p> : null}

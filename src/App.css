@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-/*p {*/
-/*  max-width: 40em;*/
-/*  text-align: center;*/
-/*}*/
-
 .navi {
   color: black;
   font-weight: bold;
@@ -42,8 +37,8 @@
 }
 
 .page {
-  margin-block: 3em;
-  margin-inline: 8em;
+  margin-block: 2em;
+  margin-inline: 3em;
 }
 
 ul {
@@ -51,7 +46,9 @@ ul {
   padding-inline-start: 0;
 }
 
-
+.exercises-list p {
+  margin-block: 0.25em;
+}
 
 
 @media (prefers-reduced-motion: no-preference) {
