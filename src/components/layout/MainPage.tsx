@@ -1,5 +1,5 @@
 import { TrainingEntity } from "types";
-import {TrainingsList} from "../edit/TrainingsList";
+import {TrainingsList} from "../TrainingsList";
 
 interface Props {
     trainingList: TrainingEntity[];

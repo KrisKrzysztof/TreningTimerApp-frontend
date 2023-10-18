@@ -1,6 +1,7 @@
 import {TrainingEntity} from "types";
-import {TrainingsList} from "../edit/TrainingsList";
+import {TrainingsList} from "../TrainingsList";
 import {ChangeEvent, useState} from "react";
+import {TrainingTimer} from "./TrainingTimer";
 
 interface Props {
     trainingList: TrainingEntity[];
@@ -11,18 +12,12 @@ export const Training = (props: Props) => {
 
     const selectTraining = (event: ChangeEvent<HTMLSelectElement>) => {
         event.preventDefault();
-        setSelectedTraining(() => props.trainingList ? props.trainingList.filter(el => el.name === event.target.value) : []);
-    }
-
-    // const chosen = (event: ChangeEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    // }
-
-    function handleClick() {
-        console.log('wybrany trening', selectedTraining);
+        setSelectedTraining(() => props.trainingList ?
+            props.trainingList.filter(el => el.name === event.target.value) : []);
     }
 
     return <div className="page">
+
         <p><b>Wybierz trening który chcesz rozpocząć</b><br/><small>Na samym dole tej strony znajdziesz szczegółowy opis każdego z dostępnych treningów.<br/>Po wybraniu treningu pojawi się okienko dialogowe z przyciskiem start, dalej postępuj zgodnie z instrukcjami, które tam będą się pojawiać.</small></p>
         <form>
             <label>
@@ -34,20 +29,19 @@ export const Training = (props: Props) => {
                             {training.name}</option>)}
                 </select>
             </label>
-            {/*<button type="submit">WYBIERZ</button>*/}
         </form>
-        <button onClick={handleClick}>sprawdź w konsoli</button>
 
         {selectedTraining[0] ?
-            <p>tutaj będzie odliczanie itd</p> :
+            <TrainingTimer training={selectedTraining[0]}/> :
             <div>
-                <p>tutaj będzie profesjonalny interfejs</p>
-                {/*{props.trainingList ? <p>a</p> : 'b'}                */}
+                <p>[ WYBIERZ TRENING ]</p>
             </div>}
+
         <hr/>
         <h4>Oto Lista dostępnych treningów wraz ze szczegółami.</h4>
         <TrainingsList
             trainingList={props.trainingList}
             details={true}/>
+
     </div>
 }
