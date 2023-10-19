@@ -1,11 +1,26 @@
-export const EditPage = () =>
+import React from "react";
+import { TrainingEntity } from "types";
+import {TrainingsList} from "../common/TrainingsList";
+
+interface Props {
+    trainingList: TrainingEntity[];
+}
+
+export const EditPage = (props: Props) =>
     <div className="page">
-        <a className="navi"
-           href="/edit/add">Stwórz nowy trening</a><br/>
-        <a className="navi"
-           href="/edit/modify">Edytuj istniejący trening</a><br/>
-        <a className="navi"
-           href="/edit/exercise/add">Dodaj nowe ćwiczenie</a><br/>
-        <a className="navi"
-           href="/edit/exercise/modify">Edytuj istniejące ćwiczenie</a><br/>
+
+        <div>
+            <a className="navi"
+               href="/edit/add">Stwórz nowy trening</a><br/>
+            <a className="navi"
+               href="/edit/modify">Edytuj istniejący trening</a><br/>
+        </div>
+
+        <TrainingsList
+            trainingList={props.trainingList}
+            modify={true}
+            details={true}/>
+
+
+
     </div>

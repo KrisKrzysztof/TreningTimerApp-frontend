@@ -7,8 +7,6 @@ import {Header} from "./components/layout/Header";
 import {MainPage} from "./components/layout/MainPage";
 import {EditPage} from "./components/edit/EditPage";
 import {Modify} from "./components/edit/Modify";
-import {AddExercise} from "./components/edit/AddExercise";
-import {ModifyExercise} from "./components/edit/ModifyExercise";
 import {apiUrl} from "./config/api";
 import { TrainingEntity } from 'types';
 
@@ -31,11 +29,9 @@ export const App = () => {
         <Routes>
             <Route path="/" element={<MainPage trainingList={trainings}/>}/>
             <Route path="/training" element={<Training trainingList={trainings}/>}/>
-            <Route path="/edit" element={<EditPage/>}/>
+            <Route path="/edit" element={<EditPage trainingList={trainings}/>}/>
             <Route path="/edit/add" element={<Add/>}/>
             <Route path="/edit/modify" element={<Modify/>}/>
-            <Route path="/edit/exercise/add" element={<AddExercise/>}/>
-            <Route path="/edit/exercise/modify" element={<ModifyExercise/>}/>
         </Routes>
     </div>
 };

@@ -1,5 +1,5 @@
 import {TrainingEntity} from "types";
-import {TrainingsList} from "../TrainingsList";
+import {TrainingsList} from "../common/TrainingsList";
 import {ChangeEvent, useState} from "react";
 import {TrainingTimer} from "./TrainingTimer";
 
@@ -37,9 +37,10 @@ export const Training = (props: Props) => {
 
         <hr/>
         <div className={selectedTraining[0] ? "hidden" : "show"}>
-        <h4>Oto Lista dostępnych treningów wraz ze szczegółami.</h4>
-        <TrainingsList
+            <h4>Oto Lista dostępnych treningów wraz ze szczegółami.</h4>
+            <TrainingsList
             trainingList={props.trainingList}
+            modify={false}
             details={true}/>
         </div>
 

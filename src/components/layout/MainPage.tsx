@@ -1,5 +1,5 @@
 import { TrainingEntity } from "types";
-import {TrainingsList} from "../TrainingsList";
+import {TrainingsList} from "../common/TrainingsList";
 
 interface Props {
     trainingList: TrainingEntity[];
@@ -17,5 +17,6 @@ export const MainPage = (props: Props) =>
         <p>Oto aktualna lista treningów z krótkim opisem (jeśli dodano):</p>
         <TrainingsList
             trainingList={props.trainingList}
+            modify={false}
             details={false}/>
     </div>
