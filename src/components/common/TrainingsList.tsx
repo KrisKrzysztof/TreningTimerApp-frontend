@@ -1,6 +1,7 @@
 import { TrainingEntity } from "types";
 import React from "react";
 import {ButtonDelete} from "./ButtonDelete";
+import {ButtonModify} from "./ButtonModify";
 
 interface Props {
     details: boolean;
@@ -16,13 +17,16 @@ export const TrainingsList = (props: Props) => {
 
     return <ul className="training-list">
 
+
         {props.trainingList.map(training =>
             <li key={training.id}>
 
-                <p><strong>{training.name}</strong><br/>{training.description ||
+                <h3>{training.name}</h3>
+                <p>{training.description ||
                     'Brak opisu.'}</p>
 
-                {props.modify && !training.id.startsWith('protected') ? <button>Modyfikuj</button> : null}
+                {props.modify && !training.id.startsWith('protected') ?
+                    <ButtonModify toModify={training}/> : null}
 
                 {props.modify && !training.id.startsWith('protected') ?
                     <ButtonDelete toDelete={training}/> : null}

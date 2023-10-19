@@ -31,7 +31,7 @@ export const App = () => {
             <Route path="/training" element={<Training trainingList={trainings}/>}/>
             <Route path="/edit" element={<EditPage trainingList={trainings}/>}/>
             <Route path="/edit/add" element={<Add/>}/>
-            <Route path="/edit/modify" element={<Modify/>}/>
+            <Route path="/edit/:id" element={<Modify/>}/>
         </Routes>
     </div>
 };

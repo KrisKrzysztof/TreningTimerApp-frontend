@@ -25,7 +25,7 @@ export const ButtonDelete = (props: Props) => {
 
     }
 
-    return <div>
+    return <div style={{display: "inline"}}>
         <button onClick={deleteTraining}>Usuń</button>
     </div>
 
