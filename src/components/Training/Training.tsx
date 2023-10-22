@@ -1,5 +1,5 @@
 import {TrainingEntity} from "types";
-import {TrainingsList} from "../common/TrainingsList";
+import {TrainingsList} from "../common/TrainingsList/TrainingsList";
 import {ChangeEvent, useState} from "react";
 import {TrainingTimer} from "./TrainingTimer";
 

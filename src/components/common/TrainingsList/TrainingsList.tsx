@@ -1,8 +1,9 @@
-import { TrainingEntity } from "types";
 import React from "react";
-import {ButtonDelete} from "./ButtonDelete";
-import {ButtonModify} from "./ButtonModify";
-import {Spinner} from "./Spinner/Spinner";
+import './TrainingsList.css';
+import { TrainingEntity } from "types";
+import {ButtonDelete} from "../ButtonDelete";
+import {ButtonModify} from "../ButtonModify";
+import {Spinner} from "../Spinner/Spinner";
 
 interface Props {
     details: boolean;
@@ -40,34 +41,34 @@ export const TrainingsList = (props: Props) => {
                             Seria składa się z następujących ćwiczeń:</p>
                         {training.exerciseOne ? <p>{training.exerciseOne}</p> : null}
                         {training.pauseOne ?
-                            <small>Przerwa {training.pauseOne} minuty</small> : null}
+                            <small>Przerwa {training.pauseOne} minut(y)</small> : null}
                         {training.exerciseTwo ? <p>{training.exerciseTwo}</p> : null}
                         {training.pauseTwo ?
-                            <small>Przerwa {training.pauseTwo} minuty</small> : null}
+                            <small>Przerwa {training.pauseTwo} minut(y)</small> : null}
                         {training.exerciseThree ? <p>{training.exerciseThree}</p> : null}
                         {training.pauseThree ?
-                            <small>Przerwa {training.pauseThree} minuty</small> : null}
+                            <small>Przerwa {training.pauseThree} minut(y)</small> : null}
                         {training.exerciseFour ? <p>{training.exerciseFour}</p> : null}
                         {training.pauseFour ?
-                            <small>Przerwa {training.pauseFour} minuty</small> : null}
+                            <small>Przerwa {training.pauseFour} minut(y)</small> : null}
                         {training.exerciseFive ? <p>{training.exerciseFive}</p> : null}
                         {training.pauseFive ?
-                            <small>Przerwa {training.pauseFive} minuty</small> : null}
+                            <small>Przerwa {training.pauseFive} minut(y)</small> : null}
                         {training.exerciseSix ? <p>{training.exerciseSix}</p> : null}
                         {training.pauseSix ?
-                            <small>Przerwa {training.pauseSix} minuty</small> : null}
+                            <small>Przerwa {training.pauseSix} minut(y)</small> : null}
                         {training.exerciseSeven ? <p>{training.exerciseSeven}</p> : null}
                         {training.pauseSeven ?
-                            <small>Przerwa {training.pauseSeven} minuty</small> : null}
+                            <small>Przerwa {training.pauseSeven} minut(y)</small> : null}
                         {training.exerciseEight ? <p>{training.exerciseEight}</p> : null}
                         {training.pauseEight ?
-                            <small>Przerwa {training.pauseEight} minuty</small> : null}
+                            <small>Przerwa {training.pauseEight} minut(y)</small> : null}
                         {training.exerciseNine ? <p>{training.exerciseNine}</p> : null}
                         {training.pauseNine ?
-                            <small>Przerwa {training.pauseNine} minuty</small> : null}
+                            <small>Przerwa {training.pauseNine} minut(y)</small> : null}
                         {training.exerciseTen ? <p>{training.exerciseTen}</p> : null}
                         {training.pauseTen ?
-                            <small>Przerwa {training.pauseTen} minuty</small> : null}
+                            <small>Przerwa {training.pauseTen} minut(y)</small> : null}
                         <hr/>
                     </div>
                     : null}

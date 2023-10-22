@@ -1,0 +1,11 @@
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+.training-list h3 {
+    margin-bottom: -0.5em;
+}
+.exercises-list p {
+    margin-bottom: 0.25em;
+}

@@ -6,6 +6,10 @@
   display: none;
 }
 
+small {
+  margin-bottom: 1em;
+}
+
 .navi {
   font-size: 1.3em;
   color: black;
@@ -17,24 +21,12 @@
 }
 
 .page {
-  margin-block: 2vh;
-  margin-inline: 3vh;
+  margin-block: 3vh;
+  margin-inline: 5vh;
 }
 
 hr {
   width: 100vh;
-}
-
-ul {
-  list-style-type: none;
-  padding-inline-start: 0;
-}
-
-.training-list h3 {
-  margin-bottom: -0.5em;
-}
-.exercises-list p {
-  margin-bottom: 0.25em;
 }
 
 form {
@@ -49,8 +41,9 @@ form p {
   margin: auto;
   text-align: center;
 }
-.label-p-basic {
+form .label-p-basic {
   display: inline;
+  width: 29vh;
 }
 
 form input, textarea {

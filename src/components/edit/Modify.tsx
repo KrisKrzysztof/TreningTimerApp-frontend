@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {apiUrl} from "../../config/api";
-import {TrainingForm} from "./TrainingForm";
+import {TrainingForm} from "./TrainingForm/TrainingForm";
 import {Spinner} from "../common/Spinner/Spinner";
 
 export const Modify = () => {
@@ -32,7 +32,7 @@ export const Modify = () => {
         return <Spinner/>;
     }
 
-    return <div className='page'>
+    return <div className="page">
         <h3>Edycja treningu: "{trainingName}"</h3>
         <TrainingForm
             modify={true}/>

@@ -10,7 +10,7 @@ export const ButtonDelete = (props: Props) => {
 
     const deleteTraining = async () => {
 
-        if (!window.confirm(`Czy jesteś pewny, że chcesz usunąć z listy następujący trening: "${props.toDelete.name}"?`)) {
+        if (!window.confirm(`Czy na pewno chcesz usunąć z listy następujący trening: "${props.toDelete.name}"?`)) {
             return;
         }
 
