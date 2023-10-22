@@ -3,6 +3,7 @@ import React from "react";
 
 interface Props {
     toDelete: TrainingEntity;
+    onListChange: () => void;
 }
 
 export const ButtonDelete = (props: Props) => {
@@ -22,6 +23,7 @@ export const ButtonDelete = (props: Props) => {
             alert(`Wystąpił błąd: ${error.message}`);
             return;
         }
+        props.onListChange();
 
     }
 

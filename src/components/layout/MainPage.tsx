@@ -3,6 +3,7 @@ import {TrainingsList} from "../common/TrainingsList";
 
 interface Props {
     trainingList: TrainingEntity[];
+    onListChange: () => void;
 }
 
 export const MainPage = (props: Props) =>
@@ -16,6 +17,7 @@ export const MainPage = (props: Props) =>
         <h2>WYBIERZ Z MENU U GÓRY CO CHCESZ ZROBIĆ</h2>
         <p>Oto aktualna lista treningów z krótkim opisem (jeśli dodano):</p>
         <TrainingsList
+            onListChange={props.onListChange}
             trainingList={props.trainingList}
             modify={false}
             details={false}/>

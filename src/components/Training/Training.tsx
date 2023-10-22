@@ -5,6 +5,7 @@ import {TrainingTimer} from "./TrainingTimer";
 
 interface Props {
     trainingList: TrainingEntity[];
+    onListChange: () => void;
 }
 
 export const Training = (props: Props) => {
@@ -39,7 +40,8 @@ export const Training = (props: Props) => {
         <div className={selectedTraining[0] ? "hidden" : "show"}>
             <h4>Oto Lista dostępnych treningów wraz ze szczegółami.</h4>
             <TrainingsList
-            trainingList={props.trainingList}
+                onListChange={props.onListChange}
+                trainingList={props.trainingList}
             modify={false}
             details={true}/>
         </div>

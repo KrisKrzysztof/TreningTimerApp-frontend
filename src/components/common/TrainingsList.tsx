@@ -8,6 +8,7 @@ interface Props {
     details: boolean;
     modify: boolean;
     trainingList: TrainingEntity[];
+    onListChange: () => void;
 }
 
 export const TrainingsList = (props: Props) => {
@@ -30,7 +31,8 @@ export const TrainingsList = (props: Props) => {
                     <ButtonModify toModify={training}/> : null}
 
                 {props.modify && !training.id.startsWith('protected') ?
-                    <ButtonDelete toDelete={training}/> : null}
+                    <ButtonDelete toDelete={training}
+                                  onListChange={props.onListChange}/> : null}
 
                 {props.modify && training.id.startsWith('protected') ? <p>[Ten trening jest chroniony, nie można go usunąć ani modyfikować.]</p> : null}
 

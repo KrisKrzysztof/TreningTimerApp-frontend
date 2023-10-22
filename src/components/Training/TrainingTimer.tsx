@@ -1,4 +1,5 @@
 import {TrainingEntity} from "types";
+import {optionalTrainings} from "../../utils/optionalTrainings";
 // import {useState} from "react";
 
 interface Props {
@@ -6,6 +7,18 @@ interface Props {
 }
 
 export const TrainingTimer = (props: Props) => {
+    const {training} = props;
+    const extraTrainings = optionalTrainings(training).filter(element => element.exercise !== undefined);
+    const serie = [
+        {
+            labelName: 'Ćwiczenie pierwsze',
+            keyValueSuffix: 'One',
+            exercise: training.exerciseTwo,
+            pause: training.pauseTwo,
+        },
+        ...extraTrainings];
+    console.log(serie);
+
     // const [serie, setSerie] = useState<string[]>([]);
     //
     // setSerie(prevState => {
@@ -30,6 +43,8 @@ export const TrainingTimer = (props: Props) => {
     //         prevState.push(props.training.exerciseTen) : null;
     //     return prevState;
     // });
+
+
 
     return <div>
 
@@ -74,6 +89,9 @@ export const TrainingTimer = (props: Props) => {
 
         <div className="progress-table">
             <h2> --== Podgląd postępu ==-- </h2>
+
+            <p> seria: </p>
+            {serie.map(element => <p key={element.keyValueSuffix}>{element.exercise}</p>)}
 
             {/*{props.training.numberOfSeries}*/}
             {/*<ul>*/}

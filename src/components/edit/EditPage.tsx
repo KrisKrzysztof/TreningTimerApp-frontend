@@ -4,6 +4,7 @@ import {TrainingsList} from "../common/TrainingsList";
 
 interface Props {
     trainingList: TrainingEntity[];
+    onListChange: () => void;
 }
 
 export const EditPage = (props: Props) =>
@@ -18,6 +19,7 @@ export const EditPage = (props: Props) =>
 
         <TrainingsList
             trainingList={props.trainingList}
+            onListChange={props.onListChange}
             modify={true}
             details={true}/>
 

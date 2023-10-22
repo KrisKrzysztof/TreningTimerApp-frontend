@@ -26,11 +26,12 @@ export const TrainingForm = (props: Props) => {
     useEffect(() => {
         try {
             setLoading(true);
-            (async () => {
+            const getTraining = async () => {
                 const res = await fetch(`${apiUrl}/trainings/${id}`);
                 const data = await res.json();
                 setTraining(data);
-            })();
+            };
+            props.modify ? getTraining() : setShowExtraTrainings(true);
         } catch (error) {
             alert(error);
         } finally {
@@ -73,12 +74,31 @@ export const TrainingForm = (props: Props) => {
             alert(error);
         } finally {
             setLoading(false);
-            console.log('finally');
         }
     };
     const saveTraining = async (event: FormEvent) => {
         event.preventDefault();
-        console.log('zapisano');
+        try {
+            setLoading(true);
+            const res = await fetch(`${apiUrl}/trainings`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(training),
+            });
+            const data = await res.json();
+            if (res.status === 400 || res.status === 500) {
+                alert(`Wystąpił błąd: ${data.message}`);
+                return;
+            }
+            alert(`Dodano trening o nazwie ${data.name}`);
+        } catch (error) {
+            alert(error);
+        } finally {
+            setLoading(false);
+            window.location.reload();
+        }
     };
 
     if (loading) {
@@ -135,7 +155,7 @@ export const TrainingForm = (props: Props) => {
                       onChange={event => updateForm('pauseOne', Number(event.target.value))}/> minuty</p>
           </label><hr/>
           </div>
-          {props.modify ?
+          {
               extraTrainings.map((element) =>
                       (element.exercise || element.pause) ?
                           <div key={element.labelName}>
@@ -172,7 +192,7 @@ export const TrainingForm = (props: Props) => {
                                               onChange={event => updateForm(`pause${element.keyValueSuffix}`, Number(event.target.value))}/> minuty</p>
                                   </label><hr/>
                           </div>
-                  ) : null
+                  )
           }
           {props.modify ?
               <button type="button" onClick={show} className={showExtraTrainings || !checkEmptyRecords ? 'hidden' : 'block'}> DODAJ WIĘCEJ ĆWICZEŃ </button> : null}

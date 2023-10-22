@@ -1,5 +1,8 @@
+import {TrainingForm} from "../common/TrainingForm";
+
 export const Add = () => {
     return <div>
-        <h1>Add training</h1>
+        <h3>Dodawanie nowego treningu:</h3>
+        <TrainingForm modify={false}/>
     </div>
 }
