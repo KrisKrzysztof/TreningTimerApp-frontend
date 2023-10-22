@@ -2,6 +2,7 @@ import { TrainingEntity } from "types";
 import React from "react";
 import {ButtonDelete} from "./ButtonDelete";
 import {ButtonModify} from "./ButtonModify";
+import {Spinner} from "./Spinner/Spinner";
 
 interface Props {
     details: boolean;
@@ -12,7 +13,7 @@ interface Props {
 export const TrainingsList = (props: Props) => {
 
     if (props.trainingList[0] === undefined) {
-        return <p>[ Ładowanie... ]</p>
+        return <Spinner/>
     }
 
     return <ul className="training-list">

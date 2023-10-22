@@ -21,6 +21,4 @@ export const EditPage = (props: Props) =>
             modify={true}
             details={true}/>
 
-
-
     </div>

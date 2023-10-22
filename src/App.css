@@ -73,16 +73,16 @@ form p {
   margin: auto;
   text-align: center;
 }
-.inp-p-basic {
+.label-p-basic {
   display: inline;
 }
-.modify-form input, textarea {
+.training-form input, textarea {
   width: 50%;
 }
-form .inp-num {
-  width: 2em;
+form .label-inp-num {
+  width: 3.25em;
 }
-.inp-p-num {
+.label-p-num {
   display: inline;
 }
 
