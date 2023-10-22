@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {apiUrl} from "../../config/api";
-import {TrainingForm} from "../common/TrainingForm";
+import {TrainingForm} from "./TrainingForm";
 import {Spinner} from "../common/Spinner/Spinner";
 
 export const Modify = () => {
@@ -27,7 +27,7 @@ export const Modify = () => {
     }, []);
 
     if (!trainingName && errorMessage) {
-        return <p>{errorMessage}</p>;
+        return <h3>{errorMessage}</h3>;
     } else if (!trainingName && !errorMessage) {
         return <Spinner/>;
     }

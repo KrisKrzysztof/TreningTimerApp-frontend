@@ -18,8 +18,6 @@ export const TrainingsList = (props: Props) => {
     }
 
     return <ul className="training-list">
-
-
         {props.trainingList.map(training =>
             <li key={training.id}>
 
@@ -39,7 +37,7 @@ export const TrainingsList = (props: Props) => {
                 {props.details ?
                     <div className="exercises-list">
                         <p>Trening składa się z {training.numberOfSeries} serii.<br/>
-                            Jedna seria składa się z następujących ćwiczeń:</p>
+                            Seria składa się z następujących ćwiczeń:</p>
                         {training.exerciseOne ? <p>{training.exerciseOne}</p> : null}
                         {training.pauseOne ?
                             <small>Przerwa {training.pauseOne} minuty</small> : null}
@@ -70,11 +68,10 @@ export const TrainingsList = (props: Props) => {
                         {training.exerciseTen ? <p>{training.exerciseTen}</p> : null}
                         {training.pauseTen ?
                             <small>Przerwa {training.pauseTen} minuty</small> : null}
+                        <hr/>
                     </div>
                     : null}
-
             </li>
         )}
-
     </ul>
 }

@@ -3,7 +3,7 @@ import {FormEvent, useEffect, useState} from "react";
 import {apiUrl} from "../../config/api";
 import {useParams} from "react-router-dom";
 import {OptionalTrainings, optionalTrainings} from "../../utils/optionalTrainings";
-import {Spinner} from "./Spinner/Spinner";
+import {Spinner} from "../common/Spinner/Spinner";
 
 interface Props {
     modify: boolean;
@@ -26,7 +26,7 @@ export const TrainingForm = (props: Props) => {
     useEffect(() => {
         try {
             setLoading(true);
-            const getTraining = async () => {
+            const getTraining = async (): Promise<void> => {
                 const res = await fetch(`${apiUrl}/trainings/${id}`);
                 const data = await res.json();
                 setTraining(data);
@@ -40,9 +40,9 @@ export const TrainingForm = (props: Props) => {
     }, []);
 
     const extraTrainings: OptionalTrainings[] = optionalTrainings(training);
-    const checkEmptyRecords = extraTrainings.map(element => element.exercise).some(element => element === undefined);
+    const checkEmptyRecords: boolean = extraTrainings.map(element => element.exercise).some(element => element === undefined);
 
-    const updateForm = (key: string, value: any) => (
+    const updateForm = (key: string, value: any): void => (
         setTraining({
             ...training,
             [key]: value,
@@ -52,7 +52,7 @@ export const TrainingForm = (props: Props) => {
         setShowExtraTrainings(true);
     };
 
-    const updateTraining = async (event: FormEvent) => {
+    const updateTraining = async (event: FormEvent): Promise<void> => {
         event.preventDefault();
         console.log('do zapisu: ' + JSON.stringify(training));
         try {
@@ -76,7 +76,7 @@ export const TrainingForm = (props: Props) => {
             setLoading(false);
         }
     };
-    const saveTraining = async (event: FormEvent) => {
+    const saveTraining = async (event: FormEvent): Promise<void> => {
         event.preventDefault();
         try {
             setLoading(true);
@@ -105,11 +105,7 @@ export const TrainingForm = (props: Props) => {
         return <Spinner/>;
     }
 
-    return <div>
-      <form
-          className='training-form'
-          onSubmit={props.modify ? updateTraining : saveTraining}
-      >
+    return <form onSubmit={props.modify ? updateTraining : saveTraining}>
           <label>
               <p className="label-p-basic">Nazwa: </p>
               <input
@@ -121,7 +117,7 @@ export const TrainingForm = (props: Props) => {
           <label>
               <p className="label-p-basic">Opis: </p>
               <textarea
-                  rows={3}
+                  rows={2}
                   cols={60}
                   value={training.description || ''}
                   onChange={event => updateForm('description', event.target.value)}/>
@@ -163,7 +159,7 @@ export const TrainingForm = (props: Props) => {
                                   <p>{element.labelName}: </p>
                                   <input
                                       type="text"
-                                      value={element.exercise}
+                                      value={element.exercise ?? ''}
                                       onChange={event => updateForm(`exercise${element.keyValueSuffix}`, event.target.value)}/>
                               </label><br/>
                               <label>
@@ -171,16 +167,16 @@ export const TrainingForm = (props: Props) => {
                                       <input
                                           className='label-inp-num'
                                           type="number"
-                                          value={element.pause}
+                                          value={element.pause ?? 0}
                                           onChange={event => updateForm(`pause${element.keyValueSuffix}`, Number(event.target.value))}/> minuty</p>
                               </label><hr/>
                           </div>
-                          : <div key={element.keyValueSuffix} className={showExtraTrainings ? 'block' : 'hidden'}>
+                          : <div key={element.labelName} className={showExtraTrainings ? 'block' : 'hidden'}>
                                   <label>
                                       <p>{element.labelName}: </p>
                                       <input
                                           type="text"
-                                          value={element.exercise}
+                                          value={element.exercise ?? ''}
                                           onChange={event => updateForm(`exercise${element.keyValueSuffix}`, event.target.value)}/>
                                   </label><br/>
                                   <label>
@@ -188,17 +184,17 @@ export const TrainingForm = (props: Props) => {
                                           <input
                                               className='label-inp-num'
                                               type="number"
-                                              value={element.pause}
+                                              value={element.pause ?? 0}
                                               onChange={event => updateForm(`pause${element.keyValueSuffix}`, Number(event.target.value))}/> minuty</p>
                                   </label><hr/>
                           </div>
                   )
           }
+          <div>
           {props.modify ?
               <button type="button" onClick={show} className={showExtraTrainings || !checkEmptyRecords ? 'hidden' : 'block'}> DODAJ WIĘCEJ ĆWICZEŃ </button> : null}
+              <br/>
           <button type='submit'> ZAPISZ </button>
+          </div>
       </form>
-
-
-    </div>
 }

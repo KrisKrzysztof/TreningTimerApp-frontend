@@ -13,11 +13,11 @@ export const TrainingTimer = (props: Props) => {
         {
             labelName: 'Ćwiczenie pierwsze',
             keyValueSuffix: 'One',
-            exercise: training.exerciseTwo,
-            pause: training.pauseTwo,
+            exercise: training.exerciseOne,
+            pause: training.pauseOne,
         },
-        ...extraTrainings];
-    console.log(serie);
+        ...extraTrainings,
+    ];
 
     // const [serie, setSerie] = useState<string[]>([]);
     //

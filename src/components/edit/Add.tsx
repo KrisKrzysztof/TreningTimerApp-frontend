@@ -1,4 +1,4 @@
-import {TrainingForm} from "../common/TrainingForm";
+import {TrainingForm} from "./TrainingForm";
 
 export const Add = () => {
     return <div>

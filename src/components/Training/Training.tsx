@@ -13,19 +13,23 @@ export const Training = (props: Props) => {
 
     const selectTraining = (event: ChangeEvent<HTMLSelectElement>) => {
         event.preventDefault();
+        console.log(event.target.id);
         setSelectedTraining(() => props.trainingList ?
-            props.trainingList.filter(el => el.name === event.target.value) : []);
+            props.trainingList.filter(el => el.id === event.target.value) : []);
     }
 
     return <div className="page">
 
         <form className={selectedTraining[0] ? "hidden" : "show"}>
             <label>
-                <select value={selectedTraining[0]?.name}
+                <select value={selectedTraining[0]?.id}
                         onChange={selectTraining}>
                     <option value="">Wybierz trening</option>
                     {props.trainingList?.map((training) =>
-                        <option value={training.name} key={training.id}>
+                        <option
+                            value={training.id}
+                            key={training.id}
+                        >
                             {training.name}</option>)}
                 </select>
             </label>
@@ -39,6 +43,7 @@ export const Training = (props: Props) => {
         <hr/>
         <div className={selectedTraining[0] ? "hidden" : "show"}>
             <h4>Oto Lista dostępnych treningów wraz ze szczegółami.</h4>
+            <hr/>
             <TrainingsList
                 onListChange={props.onListChange}
                 trainingList={props.trainingList}
