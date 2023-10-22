@@ -35,8 +35,10 @@ export const BasicRequiredForm = (props: Props) => {
                 value={props.training.numberOfSeries}
                 onChange={event => props.updateForm('numberOfSeries', Number(event.target.value))}/>
         </label><br/>
-        <h4>Lista ćwiczeń w każdej serii</h4>
-        <small className="small-form">Możesz dodać do dziesięciu ćwiczeń, minimum jedno.</small>
+        <div>
+            <h4>Lista ćwiczeń w każdej serii</h4>
+            <small className="small-form">Możesz dodać do dziesięciu ćwiczeń, minimum jedno.</small>
+        </div>
         <br/>
         <div>
             <label>

@@ -33,7 +33,7 @@ export const Modify = () => {
     }
 
     return <div className="page">
-        <h3>Edycja treningu: "{trainingName}"</h3>
+        <h2>Edycja treningu: "{trainingName}"</h2>
         <TrainingForm
             modify={true}/>
     </div>
