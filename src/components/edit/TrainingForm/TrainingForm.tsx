@@ -2,7 +2,7 @@ import { TrainingEntity } from "types";
 import {FormEvent, useEffect, useState} from "react";
 import {apiUrl} from "../../../config/api";
 import {useParams} from "react-router-dom";
-import {OptionalTrainings, optionalTrainings} from "../../../utils/optionalTrainings";
+import {OptionalExercises, optionalExercises} from "../../../utils/optionalExercises";
 import {Spinner} from "../../common/Spinner/Spinner";
 import {ExtraExerciseForm} from "./ExtraExerciseForm";
 import {BasicRequiredForm} from "./BasicRequiredForm";
@@ -41,7 +41,7 @@ export const TrainingForm = (props: Props) => {
         }
     }, []);
 
-    const extraTrainings: OptionalTrainings[] = optionalTrainings(training);
+    const extraTrainings: OptionalExercises[] = optionalExercises(training);
     const checkEmptyRecords: boolean = extraTrainings.map(element => element.exercise).some(element => element === undefined);
 
     const updateForm = (key: string, value: any): void => (

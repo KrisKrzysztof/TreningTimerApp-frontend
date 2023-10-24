@@ -12,9 +12,10 @@ export const EditPage = (props: Props) =>
         <div>
             <a className="navi"
                href="/edit/add"> {'> STWÓRZ NOWY TRENING KLIKAJĄC TUTAJ <'} </a><br/>
-            <h3>LUB EDYTUJ ISTNIEJĄCY TRENING KLIKAJĄC W ODPOWIEDNI PRZYCISK NA LIŚCIE DOSTĘPNYCH TRENINGÓW</h3>
+            <h4>LUB</h4>
+            <h3>EDYTUJ ISTNIEJĄCY TRENING KLIKAJĄC W ODPOWIEDNI PRZYCISK NA LIŚCIE DOSTĘPNYCH TRENINGÓW</h3>
         </div>
-        <hr/>
+        <hr/><hr/>
         <TrainingsList
             trainingList={props.trainingList}
             onListChange={props.onListChange}

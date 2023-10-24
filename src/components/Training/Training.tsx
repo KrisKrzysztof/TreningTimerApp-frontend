@@ -20,26 +20,28 @@ export const Training = (props: Props) => {
 
     return <div className="page">
 
-        <form className={selectedTraining[0] ? "hidden" : "show"}>
-            <label>
-                <select value={selectedTraining[0]?.id}
-                        onChange={selectTraining}>
-                    <option value="">Wybierz trening</option>
-                    {props.trainingList?.map((training) =>
-                        <option
-                            value={training.id}
-                            key={training.id}
-                        >
-                            {training.name}</option>)}
-                </select>
-            </label>
-        </form>
+        <label className={selectedTraining[0] ? "hidden" : "show"}>
+            <select value={selectedTraining[0]?.id}
+                    onChange={selectTraining}>
+                <option value="">Wybierz trening</option>
+                {props.trainingList?.map((training) =>
+                    <option
+                        value={training.id}
+                        key={training.id}
+                    >
+                        {training.name}</option>)}
+            </select>
+        </label>
 
         {selectedTraining[0] ?
-            <TrainingTimer training={selectedTraining[0]}/> :
-            <p><b>Z rozwijanej listy wybierz trening  który chcesz rozpocząć.</b><br/><small>Poniżej znajdziesz szczegółowy opis każdego z dostępnych treningów.<br/>Po wybraniu treningu pojawi się okienko dialogowe z przyciskiem start, dalej postępuj zgodnie z instrukcjami, które tam będą się pojawiać.</small></p>
-            }
+            <TrainingTimer training={selectedTraining[0]}/>
+            : <div>
+                <h3>Z ROZWIJANEJ LISTY WYBIERZ TRENING KTÓRY CHCESZ ROZPOCZĄĆ.</h3>
+                <p>Poniżej znajdziesz szczegółowy opis każdego z dostępnych treningów.<br/>Po wybraniu treningu pojawi się okienko dialogowe z przyciskiem "START", <br/>dalej postępuj zgodnie z instrukcjami, które tam się pojawią.</p>
+            </div>
+        }
 
+        <hr/>
         <hr/>
         <div className={selectedTraining[0] ? "hidden" : "show"}>
             <h4>Oto Lista dostępnych treningów wraz ze szczegółami.</h4>
@@ -47,8 +49,8 @@ export const Training = (props: Props) => {
             <TrainingsList
                 onListChange={props.onListChange}
                 trainingList={props.trainingList}
-            modify={false}
-            details={true}/>
+                modify={false}
+                details={true}/>
         </div>
 
     </div>

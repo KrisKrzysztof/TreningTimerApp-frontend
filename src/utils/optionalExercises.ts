@@ -1,13 +1,13 @@
 import { TrainingEntity } from "types";
 
-export interface OptionalTrainings {
+export interface OptionalExercises {
     labelName: string;
     keyValueSuffix: string;
     exercise: string | undefined;
     pause: number | undefined;
 }
 
-export const optionalTrainings = (training: TrainingEntity) => [
+export const optionalExercises = (training: TrainingEntity) => [
     {
         labelName: 'Ćwiczenie drugie',
         keyValueSuffix: 'Two',

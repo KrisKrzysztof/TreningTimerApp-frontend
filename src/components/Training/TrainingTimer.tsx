@@ -1,6 +1,6 @@
 import {TrainingEntity} from "types";
-import {optionalTrainings} from "../../utils/optionalTrainings";
-// import {useState} from "react";
+import {useState} from "react";
+import audioFile from '../../assets/sound.mp3';
 
 interface Props {
     training: TrainingEntity;
@@ -8,79 +8,155 @@ interface Props {
 
 export const TrainingTimer = (props: Props) => {
     const {training} = props;
-    const extraTrainings = optionalTrainings(training).filter(element => element.exercise !== undefined);
-    const serie = [
-        {
-            labelName: 'Ćwiczenie pierwsze',
-            keyValueSuffix: 'One',
-            exercise: training.exerciseOne,
-            pause: training.pauseOne,
-        },
-        ...extraTrainings,
-    ];
+    const [startBtnDisabled, setStartBtnDisabled] = useState(false);
+    const [showStartInfo, setShowStartInfo] = useState('')
+    const [seriesInfo, setSeriesInfo] = useState('^^^')
+    const [hiddenDialogInfo, setHiddenDialogInfo] = useState('hidden');
+    const [hiddenPauseInfo, setHiddenPauseInfo] = useState('hidden');
+    const [exerciseTask, setExerciseTask] = useState(' A teraz robimy ...');
+    const [counterStatus, setCounterStatus] = useState('Czekaj ... sekund');
 
-    // const [serie, setSerie] = useState<string[]>([]);
-    //
-    // setSerie(prevState => {
-    //     prevState.push(props.training.exerciseOne);
-    //     props.training.exerciseTwo ?
-    //         prevState.push(props.training.exerciseTwo) : null;
-    //     props.training.exerciseThree ?
-    //         prevState.push(props.training.exerciseThree) : null;
-    //     props.training.exerciseFour ?
-    //         prevState.push(props.training.exerciseFour) : null;
-    //     props.training.exerciseFive ?
-    //         prevState.push(props.training.exerciseFive) : null;
-    //     props.training.exerciseSix ?
-    //         prevState.push(props.training.exerciseSix) : null;
-    //     props.training.exerciseSeven ?
-    //         prevState.push(props.training.exerciseSeven) : null;
-    //     props.training.exerciseEight ?
-    //         prevState.push(props.training.exerciseEight) : null;
-    //     props.training.exerciseNine ?
-    //         prevState.push(props.training.exerciseNine) : null;
-    //     props.training.exerciseTen ?
-    //         prevState.push(props.training.exerciseTen) : null;
-    //     return prevState;
-    // });
+    const startInfoClasses: string = `start-info ${showStartInfo}`;
+    const dialogInfoClasses: string = `dialog-info ${hiddenDialogInfo}`;
+    const pauseInfoClasses: string = `pause-info ${hiddenPauseInfo}`;
+
+    const beep = async () => {
+        const snd: HTMLAudioElement = new Audio(audioFile);
+        await snd.play();
+    };
+
+    const showPauseInfo = () => {
+        setHiddenPauseInfo('');
+        setHiddenDialogInfo('hidden');
+    }
+    const showDialogInfo = () => {
+        setHiddenDialogInfo('');
+        setHiddenPauseInfo('hidden');
+    };
 
 
+    const pause = async (minutes: number) => {
+        await (async () => {
+            showPauseInfo();
+            // field[step].style.background = '#3cc341'
+            // step = step + 1;
+            let i = minutes * 60;
+            setCounterStatus(`Czekaj ${i} sekund`);
+            // switch (step) {
+            //     case 4:
+            //         seriesInfo.innerText = 'Koniec serii pierwszej.';
+            //         break;
+            //     case 8:
+            //         seriesInfo.innerText = 'Koniec serii drugiej.';
+            //         break;
+            //     case 12:
+            //         seriesInfo.innerText = 'Koniec serii trzeciej.';
+            //         break;
+            // }
+            // document.removeEventListener('keydown', pauseOne);
+            // document.removeEventListener('keydown', pauseTwo);
+            const second = 50; // milliseconds - default value 1000 (for full version)
+            const seconder = setInterval(() => {
+                i--;
+                setCounterStatus(`Czekaj ${i} sekund`);
+            }, second);
+            setTimeout(async () => {
+                clearInterval(seconder);
+                await beep();
+                // await switcher();
+                showDialogInfo();
+            }, 60 * second * minutes);
+        })();
+    }
 
-    return <div>
+    const waitForExerciseDone = (pauseTime: number): Promise<void> => new Promise<void>(async (resolve) => {
+        await pause(pauseTime);
+        const exerciseDoneConfirmation = () => {
+            button?.removeEventListener("click", exerciseDoneConfirmation);
+            document.removeEventListener('keydown', (event) => {
+                if (event.key === 'Enter'
+                    || event.key === 'Space'
+                    || event.code === undefined) {
+                    exerciseDoneConfirmation();
+                }
+            });
+            resolve();
+        };
+        const button = document.getElementById("btn-done");
+        button?.addEventListener("click", exerciseDoneConfirmation);
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter'
+                || event.key === 'Space'
+                || event.code === undefined) {
+                exerciseDoneConfirmation();
+            }
+        });
+    });
 
+    const exercise = async (exercise: string, pauseTime: number) => {
+        if (exercise === 'Koniec') {
+            console.log(`Koniec serii `);
+            setSeriesInfo('Seria druga.'); // todo
+        }
+        showDialogInfo();
+        setExerciseTask(`${exercise}`);
+        await waitForExerciseDone(pauseTime);
+    };
+
+    const start = async () => {
+        setStartBtnDisabled(true);
+        setShowStartInfo('hidden');
+        setSeriesInfo('Seria pierwsza.');
+        await exercise(training.exerciseOne, training.pauseOne);
+        await exercise(training.exerciseTwo ?? 'Koniec', training.pauseTwo ?? 0);
+        await exercise(training.exerciseThree ?? 'Koniec', training.pauseThree ?? 0);
+        await exercise(training.exerciseFour ?? 'Koniec', training.pauseFour ?? 0);
+        await exercise(training.exerciseFive ?? 'Koniec', training.pauseFive ?? 0);
+        await exercise(training.exerciseSix ?? 'Koniec', training.pauseSix ?? 0);
+        await exercise(training.exerciseSeven ?? 'Koniec', training.pauseSeven ?? 0);
+        await exercise(training.exerciseEight ?? 'Koniec', training.pauseEight ?? 0);
+        await exercise(training.exerciseNine ?? 'Koniec', training.pauseNine ?? 0);
+        await exercise(training.exerciseTen ?? 'Koniec', training.pauseTen ?? 0);
+    };
+
+
+    return <div className='trainin-div'>
         [strona w budowie]
 
-        <h1> Trening </h1>
-        <h2> {props.training.name} </h2>
+        <h1> TRENING </h1>
+        <h2> {training.name} </h2>
 
-        <div className="div-start">
-            <button className="btn btn-start"> Start!</button>
-        </div>
+        <button
+            id="btn-start"
+            disabled={startBtnDisabled}
+            onClick={start}> Start! </button>
 
         <div className="general-info">
 
-            <h2 className="series-info"> ^^^ </h2>
+            <h2 className="series-info" >{seriesInfo}</h2>
 
-            <h3 className="start-info"> Kliknij "Start!" aby rozpocząć. </h3>
+            <h3 className={startInfoClasses}> Kliknij "Start!" aby rozpocząć. </h3>
 
-            <div className="info pause-info hidden">
+            <div className={pauseInfoClasses}>
 
                 <p> Czas na odpoczynek. </p>
 
                 <div className="info-content">
                     <p className="pause-marker"> -= Pauza =- </p>
-                    <p className="pause-counter"> Czekaj ... sekund </p>
+                    <p className="pause-counter">{counterStatus}</p>
                 </div>
 
             </div>
 
-            <div className="info dialog-info hidden">
+            <div className={dialogInfoClasses}>
 
-                <p className="what-to-do"> A teraz robimy </p>
+                <p id="exercise-task" className="what-to-do">{exerciseTask}</p>
 
                 <div className="info-content">
                     <p className="what-to-do-ask"> zrobione? </p>
-                    <button className="btn btn-done">Jedziemy dalej!</button>
+                    <button
+                        id="btn-done"
+                    >Jedziemy dalej!</button>
                 </div>
 
             </div>
@@ -90,51 +166,43 @@ export const TrainingTimer = (props: Props) => {
         <div className="progress-table">
             <h2> --== Podgląd postępu ==-- </h2>
 
-            <p> seria: </p>
-            {serie.map(element => <p key={element.keyValueSuffix}>{element.exercise}</p>)}
+            <div>
+                <div id="column-1" className="column">
+                    <h3> Seria pierwsza </h3>
+                    <p className="field"> ćwiczenie jeden </p>
+                    <p className="field"> ćwiczenie dwa </p>
+                    <p className="field"> ćwiczenie trzy </p>
+                    <p className="field"> ćwiczenie cztery </p>
+                </div>
 
-            {/*{props.training.numberOfSeries}*/}
-            {/*<ul>*/}
-            {/*{serie.map(el => <li>el</li> )}*/}
-            {/*</ul>*/}
+                <div id="column-2" className="column">
+                    <h3> Seria druga </h3>
+                    <p className="field"> ćwiczenie jeden </p>
+                    <p className="field"> ćwiczenie dwa</p>
+                    <p className="field"> ćwiczenie trzy </p>
+                    <p className="field"> ćwiczenie cztery </p>
+                </div>
+                <div className="exClear"></div>
+            </div>
 
+            <div>
+                <div id="column-3" className="column">
+                    <h3> Seria trzecia </h3>
+                    <p className="field"> ćwiczenie jeden </p>
+                    <p className="field"> ćwiczenie dwa </p>
+                    <p className="field"> ćwiczenie trzy </p>
+                    <p className="field"> ćwiczenie cztery </p>
+                </div>
 
-            {/*<div>*/}
-            {/*    <div id="column-1" className="column">*/}
-            {/*        <h3> Seria pierwsza </h3>*/}
-            {/*        <p className="field"> Pompki standardowe </p>*/}
-            {/*        <p className="field"> Pompki z podwyższeniem </p>*/}
-            {/*        <p className="field"> Pompki szerokie </p>*/}
-            {/*        <p className="field"> Brzuszki </p>*/}
-            {/*    </div>*/}
-
-            {/*    <div id="column-2" className="column">*/}
-            {/*        <h3> Seria druga </h3>*/}
-            {/*        <p className="field"> Pompki standardowe </p>*/}
-            {/*        <p className="field"> Pompki z podwyższeniem </p>*/}
-            {/*        <p className="field"> Pompki szerokie </p>*/}
-            {/*        <p className="field"> Brzuszki </p>*/}
-            {/*    </div>*/}
-            {/*    <div className="exClear"></div>*/}
-            {/*</div>*/}
-
-            {/*<div>*/}
-            {/*    <div id="column-3" className="column">*/}
-            {/*        <h3> Seria trzecia </h3>*/}
-            {/*        <p className="field"> Pompki standardowe </p>*/}
-            {/*        <p className="field"> Pompki z podwyższeniem </p>*/}
-            {/*        <p className="field"> Pompki szerokie </p>*/}
-            {/*        <p className="field"> Brzuszki </p>*/}
-            {/*    </div>*/}
-
-            {/*    <div id="column-4" className="column">*/}
-            {/*        <h3> Seria czwarta </h3>*/}
-            {/*        <p className="field"> Pompki standardowe </p>*/}
-            {/*        <p className="field"> Pompki z podwyższeniem </p>*/}
-            {/*        <p className="field"> Pompki szerokie </p>*/}
-            {/*    </div>*/}
-            {/*    <div className="exClear"></div>*/}
-            {/*</div>*/}
+                <div id="column-4" className="column">
+                    <h3> Seria czwarta </h3>
+                    <p className="field"> ćwiczenie jeden </p>
+                    <p className="field"> ćwiczenie dwa </p>
+                    <p className="field"> ćwiczenie trzy </p>
+                    <p className="field"> ćwiczenie cztery </p>
+                </div>
+                <div className="exClear"></div>
+            </div>
 
         </div>
 
