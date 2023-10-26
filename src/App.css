@@ -21,6 +21,10 @@
   margin-inline: 10vw;
 }
 
+.training-div {
+  height: 16em;
+}
+
 p {
   margin-block: 0.5em;
 }

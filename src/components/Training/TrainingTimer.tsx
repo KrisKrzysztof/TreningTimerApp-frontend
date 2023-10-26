@@ -6,6 +6,7 @@ import {StepContext} from "../../contexts/StepContext";
 interface Props {
     training: TrainingEntity;
 }
+
 interface Exercise {
     exercise: string;
     pause: number;
@@ -94,7 +95,7 @@ export const TrainingTimer = (props: Props) => {
     }
 
     const exercise = (stage: number, i: number) => {
-         // console.log('exercise ');
+        // console.log('exercise ');
         return step === stage ?
             <ExerciseProgress
                 exercise={exercises[i].exercise}
@@ -114,68 +115,89 @@ export const TrainingTimer = (props: Props) => {
     }
 
     const progress = () => {
-        if (step === exercises.length+1) {
-            return <p>Koniec treningu.</p>
+        if (step === exercises.length + 1) {
+            return <div>
+                <h4> 💪💪💪 Dobra robota! 💪💪💪 <br/> 😊😎🥳 Koniec treningu. 🥳😎😊 </h4>
+                <small>Odśwież stronę, aby rozpocząć nowy trening, lub wybierz coś z menu jeśli chcesz zrobić coś innego.</small>
+            </div>
         }
         return serie();
     }
 
-    if (step >= exercises.length/training.numberOfSeries+1) {
+    if (step >= exercises.length / training.numberOfSeries + 1) {
         serieInfo = 'Seria druga.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries)) {
         serieInfo = 'Seria trzecia.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*2) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries) * 2) {
         serieInfo = 'Seria czwarta.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*3) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries) * 3) {
         serieInfo = 'Seria piąta.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*4) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries) * 4) {
         serieInfo = 'Seria szósta.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*5) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries) * 5) {
         serieInfo = 'Seria siódma.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*6) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries) * 6) {
         serieInfo = 'Seria ósma.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*7) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries) * 7) {
         serieInfo = 'Seria dziewiąta.'
     }
-    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*8) {
+    if (step >= (exercises.length / training.numberOfSeries + 1) +
+        (exercises.length / training.numberOfSeries) * 8) {
         serieInfo = 'Seria dziesiąta.'
     }
-    if (step >= exercises.length+1) {
-        serieInfo = 'Świetna robota!'
+    if (step >= exercises.length + 1) {
+        serieInfo = 'Świetnie!'
     }
 
 
-    return <div className='training-div'>
-        [strona w budowie]
+    return <div className='training-page'>
 
-        <h1> TRENING </h1>
-        <h2> {training.name} </h2>
+        <div className='training-div'>
 
-        <button
-            disabled={trainingStarted}
-            onClick={start}> Start!
-        </button>
-        <h3> {serieInfo} </h3>
-        <h2 className={trainingStarted ? 'hidden': 'block'}>
-            Kliknij "Start!" aby rozpocząć.</h2>
+            <h1> TRENING </h1>
+            <h2> {training.name} </h2>
 
+            <button
+                className={trainingStarted ? 'hidden' : 'block'}
+                onClick={start}> Start!
+            </button>
+            <h3> {serieInfo} </h3>
+            <h2 className={trainingStarted ? 'hidden' : 'block'}>
+                Kliknij "Start!" aby rozpocząć.</h2>
 
-        {progress()}
+            {progress()}
 
-        <hr/>
-        <h5>development info</h5>
-        <p>serii {training.numberOfSeries}</p>
-        <p>krok: {step}</p>
-        {/*<p>serie pozostałe: {seriesRemaining}</p>*/}
+        </div>
 
-        <p>ćw: {JSON.stringify(exercises)}</p>
+        <div className='training-preview'>
+
+            <hr/>
+            <h4>Podgląd postępu</h4>
+
+            <hr/>
+            [strona w budowie]
+
+            <h5>development info</h5>
+            <p>serii {training.numberOfSeries}</p>
+            <p>krok: {step}</p>
+
+            <p>ćw: {JSON.stringify(exercises)}</p>
+
+        </div>
 
     </div>
 }
