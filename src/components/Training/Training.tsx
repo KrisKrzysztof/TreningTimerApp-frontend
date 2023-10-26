@@ -13,7 +13,6 @@ export const Training = (props: Props) => {
 
     const selectTraining = (event: ChangeEvent<HTMLSelectElement>) => {
         event.preventDefault();
-        console.log(event.target.id);
         setSelectedTraining(() => props.trainingList ?
             props.trainingList.filter(el => el.id === event.target.value) : []);
     }
