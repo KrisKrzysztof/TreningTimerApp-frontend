@@ -113,6 +113,7 @@ export const TrainingForm = (props: Props) => {
               extraTrainings.map((element) =>
                       (element.exercise || element.pause) ?
                           <ExtraExerciseForm
+                              key={element.labelName}
                               labelName={element.labelName}
                               exercise={element.exercise}
                               pause={element.pause}
@@ -121,6 +122,7 @@ export const TrainingForm = (props: Props) => {
                           />
                           : <div key={element.labelName} className={showExtraTrainings ? 'block' : 'hidden'}>
                               <ExtraExerciseForm
+                                  key={element.labelName}
                                   labelName={element.labelName}
                                   exercise={element.exercise}
                                   pause={element.pause}

@@ -12,11 +12,13 @@ interface Exercise {
 }
 
 export const TrainingTimer = (props: Props) => {
-        const {training} = props;
+    const {training} = props;
+
     const [trainingStarted, setTrainingStarted] = useState(false);
     const [step, setStep] = useState(0);
-    const [seriesRemaining, setSeriesRemaining] = useState(training.numberOfSeries);
-    const [exercises] = useState<Exercise[]>([]);
+
+    let [serieInfo, setSerieInfo] = useState('^^^')
+    let [exercises] = useState<Exercise[]>([]);
 
     const makeSerie = () => {
         exercises.push({
@@ -28,36 +30,71 @@ export const TrainingTimer = (props: Props) => {
                 exercise: training.exerciseTwo,
                 pause: training.pauseTwo,
             },
-        )
+        );
         if (training.exerciseThree && training.pauseThree) exercises.push(
             {
                 exercise: training.exerciseThree,
                 pause: training.pauseThree,
             },
-        )
+        );
         if (training.exerciseFour && training.pauseFour) exercises.push(
             {
                 exercise: training.exerciseFour,
                 pause: training.pauseFour,
             },
-        )
+        );
+        if (training.exerciseFive && training.pauseFive) exercises.push(
+            {
+                exercise: training.exerciseFive,
+                pause: training.pauseFive,
+            },
+        );
+        if (training.exerciseSix && training.pauseSix) exercises.push(
+            {
+                exercise: training.exerciseSix,
+                pause: training.pauseSix,
+            },
+        );
+        if (training.exerciseSeven && training.pauseSeven) exercises.push(
+            {
+                exercise: training.exerciseSeven,
+                pause: training.pauseSeven,
+            },
+        );
+        if (training.exerciseEight && training.pauseEight) exercises.push(
+            {
+                exercise: training.exerciseEight,
+                pause: training.pauseEight,
+            },
+        );
+        if (training.exerciseNine && training.pauseNine) exercises.push(
+            {
+                exercise: training.exerciseNine,
+                pause: training.pauseNine,
+            },
+        );
+        if (training.exerciseTen && training.pauseTen) exercises.push(
+            {
+                exercise: training.exerciseTen,
+                pause: training.pauseTen,
+            },
+        );
     }
 
     useEffect(() => {
-        // użyć fori żeby stworzyć tablicę całego treningu
-        makeSerie();
-
-        // setExercises(exercises);
-        // console.log(exercises); // uwaga! Wyłączyć React.StrictMode
+        for (let i = 0; i < training.numberOfSeries; i++) {
+            makeSerie();
+        }
     }, []);
-
 
     const start = () => {
         setTrainingStarted(true);
         setStep(1);
+        setSerieInfo('Seria pierwsza.')
     }
 
     const exercise = (stage: number, i: number) => {
+         // console.log('exercise ');
         return step === stage ?
             <ExerciseProgress
                 exercise={exercises[i].exercise}
@@ -67,12 +104,7 @@ export const TrainingTimer = (props: Props) => {
 
     const serie = () => {
         return exercises.map((el, i) => {
-            if (step === exercises.length+1) {
-                console.log(' krok ' + step);
-                const series = seriesRemaining - 1;
-                setSeriesRemaining(series);
-                setStep(0);
-            }
+            // console.log('series');
             return <div key={i}>
                 <StepContext.Provider value={{step, setStep}}>
                     {exercise(i + 1, i)}
@@ -82,67 +114,43 @@ export const TrainingTimer = (props: Props) => {
     }
 
     const progress = () => {
-
-
-        // const series = () => {
-        //     const seriesComponents = [];
-        //
-        //     for (let i = 0; i < seriesRemaining; i++) {
-        //         seriesComponents.push(i);
-        //     }
-        //
-        //     return seriesComponents;
-        // }
-        // const seriesArray = series();
-        // return seriesArray.map((el,i) =>{
-        //     if (seriesRemaining > 0) {
-        //         return <div key={i}>
-        //             {serie()}
-        //         </div>;
-        //     }
-        //     return <p> Koniec treningu. </p>
-        // })
-
-
-        // if (seriesRemaining === 0) {
-        //     return <p>koniec treningu</p>
-        // }
-
-        // for (let i = training.numberOfSeries; i <= 0; i--) {
-        //     serie();
-        // }
-
-
-        // if (step === exercises.length+1) {
-        //     console.log(' krok ' + step);
-        //     const series = seriesRemaining - 1;
-        //     setSeriesRemaining(series);
-        //     setStep(0);
-        //     // return serie();
-        // }
+        if (step === exercises.length+1) {
+            return <p>Koniec treningu.</p>
+        }
         return serie();
     }
 
-    // const render = () => {
-    //     const series = () => {
-    //         const seriesComponents = [];
-    //
-    //         for (let i = 0; i < seriesRemaining; i++) {
-    //             seriesComponents.push(i);
-    //         }
-    //
-    //         return seriesComponents;
-    //     }
-    //     const seriesArray = series();
-    //     return seriesArray.map((el,i) =>{
-    //         if (seriesRemaining > 0) {
-    //             return <div key={i}>
-    //                 {serie()}
-    //             </div>;
-    //         }
-    //         return <p> Koniec treningu. </p>
-    //     })
-    // }
+    if (step >= exercises.length/training.numberOfSeries+1) {
+        serieInfo = 'Seria druga.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)) {
+        serieInfo = 'Seria trzecia.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*2) {
+        serieInfo = 'Seria czwarta.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*3) {
+        serieInfo = 'Seria piąta.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*4) {
+        serieInfo = 'Seria szósta.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*5) {
+        serieInfo = 'Seria siódma.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*6) {
+        serieInfo = 'Seria ósma.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*7) {
+        serieInfo = 'Seria dziewiąta.'
+    }
+    if (step >= (exercises.length/training.numberOfSeries+1)+(exercises.length/training.numberOfSeries)*8) {
+        serieInfo = 'Seria dziesiąta.'
+    }
+    if (step >= exercises.length+1) {
+        serieInfo = 'Świetna robota!'
+    }
+
 
     return <div className='training-div'>
         [strona w budowie]
@@ -154,33 +162,18 @@ export const TrainingTimer = (props: Props) => {
             disabled={trainingStarted}
             onClick={start}> Start!
         </button>
+        <h3> {serieInfo} </h3>
+        <h2 className={trainingStarted ? 'hidden': 'block'}>
+            Kliknij "Start!" aby rozpocząć.</h2>
+
 
         {progress()}
 
-        {/*{render()}*/}
-
-
-
-        {/*<StepContext.Provider value={{step, setStep}}>*/}
-
-
-        {/*    {progress()}*/}
-
-        {/*    /!*{exercise(1, 0)}*!/*/}
-        {/*    /!*{exercise(2, 1)}*!/*/}
-        {/*    /!*{exercise(3, 2)}*!/*/}
-
-        {/*    /!*{exercises.map((el, i) => {*!/*/}
-        {/*    /!*    *!/*/}
-        {/*    /!*    exercise(i+1, i);*!/*/}
-        {/*    /!*    *!/*/}
-        {/*    /!*})}*!/*/}
-
-
-        {/*</StepContext.Provider>*/}
-
+        <hr/>
+        <h5>development info</h5>
+        <p>serii {training.numberOfSeries}</p>
         <p>krok: {step}</p>
-        <p>serie pozostałe: {seriesRemaining}</p>
+        {/*<p>serie pozostałe: {seriesRemaining}</p>*/}
 
         <p>ćw: {JSON.stringify(exercises)}</p>
 
