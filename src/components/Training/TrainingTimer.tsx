@@ -1,7 +1,8 @@
 import {TrainingEntity} from "types";
 import {useEffect, useState} from "react";
 import {ExerciseProgress} from "./ExerciseProgress";
-import {StepContext} from "../../contexts/StepContext";
+import {RealStepContext, StepContext} from "../../contexts/StepContext";
+import {TrainingsList} from "../common/TrainingsList/TrainingsList";
 
 interface Props {
     training: TrainingEntity;
@@ -17,6 +18,7 @@ export const TrainingTimer = (props: Props) => {
 
     const [trainingStarted, setTrainingStarted] = useState(false);
     const [step, setStep] = useState(0);
+    const [realStep, setRealStep] = useState(0);
 
     let [serieInfo, setSerieInfo] = useState('^^^')
     let [exercises] = useState<Exercise[]>([]);
@@ -88,16 +90,25 @@ export const TrainingTimer = (props: Props) => {
         }
     }, []);
 
+    useEffect(() => {
+        if (realStep) {
+            document.getElementById(realStep.toString())?.classList.remove('red');
+            document.getElementById(realStep.toString())?.classList.add('green');
+        }
+    }, [realStep]);
+
+
     const start = () => {
         setTrainingStarted(true);
         setStep(1);
+        setRealStep(0);
         setSerieInfo('Seria pierwsza.')
     }
 
     const exercise = (stage: number, i: number) => {
-        // console.log('exercise ');
         return step === stage ?
             <ExerciseProgress
+                exercisesLength={exercises.length}
                 exercise={exercises[i].exercise}
                 pause={exercises[i].pause}
             /> : null
@@ -105,11 +116,12 @@ export const TrainingTimer = (props: Props) => {
 
     const serie = () => {
         return exercises.map((el, i) => {
-            // console.log('series');
             return <div key={i}>
+                <RealStepContext.Provider value={{realStep, setRealStep}}>
                 <StepContext.Provider value={{step, setStep}}>
                     {exercise(i + 1, i)}
                 </StepContext.Provider>
+                </RealStepContext.Provider>
             </div>
         })
     }
@@ -122,6 +134,23 @@ export const TrainingTimer = (props: Props) => {
             </div>
         }
         return serie();
+    }
+
+    let fields: number[] = [];
+
+    const progresField = () => {
+        for (let i = 1; i < exercises.length+1; i++) {
+            fields = [...fields, i];
+        }
+        return <div className="progress-fields">
+            {fields.map(element => {
+                return <div
+                    key={element}
+                    id={element.toString()}
+                    className="progress-field red">
+                </div>
+            })}
+        </div>
     }
 
     if (step >= exercises.length / training.numberOfSeries + 1) {
@@ -182,22 +211,34 @@ export const TrainingTimer = (props: Props) => {
             {progress()}
 
         </div>
+        <hr/>
+
+            <div className='progress-view'>
+                <h4>Podgląd postępu</h4>
+                <p className={trainingStarted ? 'hidden' : 'block'}>Kiedy rozpoczniesz trening, tutaj pojawi się podgląd postępu</p>
+                {progresField()}
+            </div>
 
         <div className='training-preview'>
 
             <hr/>
-            <h4>Podgląd postępu</h4>
-
-            <hr/>
-            [strona w budowie]
-
-            <h5>development info</h5>
-            <p>serii {training.numberOfSeries}</p>
-            <p>krok: {step}</p>
-
-            <p>ćw: {JSON.stringify(exercises)}</p>
+            <TrainingsList
+                nameAndDescription={false}
+                onListChange={() => ''}
+                trainingList={[training]}
+                modify={false}
+                details={true}/>
 
         </div>
+
+        {/*[strona w budowie]*/}
+
+        {/*<h5>development info</h5>*/}
+        {/*<p>serii {training.numberOfSeries}</p>*/}
+        {/*<p>krok: {step}</p>*/}
+        {/*<p>real step: {realStep}</p>*/}
+
+        {/*<p>ćw: {JSON.stringify(exercises)}</p>*/}
 
     </div>
 }

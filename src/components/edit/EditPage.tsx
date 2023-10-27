@@ -17,6 +17,7 @@ export const EditPage = (props: Props) =>
         </div>
         <hr/><hr/>
         <TrainingsList
+            nameAndDescription={true}
             trainingList={props.trainingList}
             onListChange={props.onListChange}
             modify={true}

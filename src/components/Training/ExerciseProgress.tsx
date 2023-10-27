@@ -1,15 +1,17 @@
 import {useContext, useState} from "react";
 import audioFile from '../../assets/sound.mp3';
-import {StepContext} from "../../contexts/StepContext";
+import {RealStepContext, StepContext} from "../../contexts/StepContext";
 
 interface Props {
+    exercisesLength: number
     exercise: string;
     pause: number;
 }
 
 export const ExerciseProgress = (props: Props) => {
-    const {exercise, pause} = props;
+    const {exercisesLength, exercise, pause} = props;
     const {step, setStep} = useContext(StepContext);
+    const {realStep, setRealStep} = useContext(RealStepContext);
     const [showPauseInfo, setShowPauseInfo] = useState(false);
     const [showDialog, setShowDialog] = useState(true);
     const [pauseCounter, setPauseCounter] = useState('Czekaj ... sekund')
@@ -20,6 +22,7 @@ export const ExerciseProgress = (props: Props) => {
     };
 
     const timer = async (pauseTime: number) => {
+
         await (async () => {
             let i = pauseTime * 60;
             setPauseCounter(`Czekaj ${i} sekund`);
@@ -29,13 +32,24 @@ export const ExerciseProgress = (props: Props) => {
                 i--;
                 setPauseCounter(`Czekaj ${i} sekund`);
             }, second);
-            setTimeout(async () => {
-                clearInterval(seconder);
-                await beep();
-                const addStep = step + 1;
-                setStep(addStep);
-                setShowPauseInfo(false)
-            }, 60 * second * pauseTime);
+            if (step === exercisesLength) {
+                setTimeout(async () => {
+                    clearInterval(seconder);
+                    await beep();
+                    const addStep = step + 1;
+                    setStep(addStep);
+                    setShowPauseInfo(false)
+                }, 0);
+            } else {
+                setTimeout(async () => {
+                    clearInterval(seconder);
+                    await beep();
+                    const addStep = step + 1;
+                    setStep(addStep);
+                    setShowPauseInfo(false)
+                }, 60 * second * pauseTime);
+            }
+
         })();
 
     }
@@ -43,6 +57,8 @@ export const ExerciseProgress = (props: Props) => {
     const exerciseDone = async () => {
         setShowPauseInfo(true)
         setShowDialog(false);
+        const addRealStep = realStep + 1;
+        setRealStep(addRealStep);
         await timer(pause);
     };
 
@@ -53,7 +69,7 @@ export const ExerciseProgress = (props: Props) => {
                 <p> Zrób {exercise}.</p>
                 <p>Zrobione?</p>
             </label>
-            <button onClick={exerciseDone}>Jedziemy dalej!</button>
+            <button onClick={exerciseDone}>Tak jest!</button>
         </div> : null}
 
         {showPauseInfo ? <div>

@@ -6,6 +6,7 @@ import {ButtonModify} from "../ButtonModify";
 import {Spinner} from "../Spinner/Spinner";
 
 interface Props {
+    nameAndDescription: boolean;
     details: boolean;
     modify: boolean;
     trainingList: TrainingEntity[];
@@ -22,9 +23,11 @@ export const TrainingsList = (props: Props) => {
         {props.trainingList.map(training =>
             <li key={training.id}>
 
-                <h3>{training.name}</h3>
-                <p>{training.description ||
-                    'Brak opisu.'}</p>
+                {props.nameAndDescription ? <div>
+                    <h3>{training.name}</h3>
+                    <p>{training.description ||
+                        'Brak opisu.'}</p>
+                </div> :null}
 
                 {props.modify && !training.id.startsWith('protected') ?
                     <ButtonModify toModify={training}/> : null}

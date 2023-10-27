@@ -67,6 +67,24 @@ form button {
   width: 30%;
 }
 
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
+.progress-view {
+  height: 5em;
+}
+.progress-fields {
+  display: inline-block;
+}
+.progress-field {
+  min-width: 1em;
+  max-width: max-content;
+  height: 1em;
+  display: inline-block;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
