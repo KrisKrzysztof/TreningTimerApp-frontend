@@ -22,6 +22,8 @@ export const ExtraExerciseForm = (props: Props) => {
             <p className='label-p-num'>Pauza: <> </>
                 <input
                     className='label-inp-num'
+                    min={0}
+                    max={10}
                     type="number"
                     value={props.pause ?? 0}
                     onChange={event => props.updateForm(

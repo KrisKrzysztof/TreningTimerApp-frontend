@@ -54,6 +54,8 @@ export const BasicRequiredForm = (props: Props) => {
                     <input
                         required
                         className='label-inp-num'
+                        min={0}
+                        max={10}
                         type="number"
                         value={props.training.pauseOne}
                         onChange={event => props.updateForm('pauseOne', Number(event.target.value))}/> minut(y)</p>
