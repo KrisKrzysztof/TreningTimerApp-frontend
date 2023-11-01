@@ -40,7 +40,7 @@ export const TrainingsList = (props: Props) => {
 
                 {props.details ?
                     <div className="exercises-list">
-                        <p>Trening składa się z {training.numberOfSeries} serii.<br/><br/>
+                        <p>Trening składa się z {training.numberOfSeries} serii.<br/>
                             Seria składa się z następujących ćwiczeń:</p>
                         {training.exerciseOne ? <p>{training.exerciseOne}</p> : null}
                         {training.pauseOne ?

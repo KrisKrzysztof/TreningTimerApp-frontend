@@ -129,7 +129,7 @@ export const TrainingTimer = (props: Props) => {
     const progress = () => {
         if (step === exercises.length + 1) {
             return <div>
-                <h4> 💪💪💪 Dobra robota! 💪💪💪 <br/> 😊😎🥳 Koniec treningu. 🥳😎😊 </h4>
+                <h4> 😊😎🥳 Dobra robota! 🥳😎😊 <br/> 💪💪 💪💪 </h4>
                 <small>Odśwież stronę, aby rozpocząć nowy trening, lub wybierz coś z menu jeśli chcesz zrobić coś innego.</small>
             </div>
         }
@@ -189,7 +189,7 @@ export const TrainingTimer = (props: Props) => {
         serieInfo = 'Seria dziesiąta.'
     }
     if (step >= exercises.length + 1) {
-        serieInfo = 'Świetnie!'
+        serieInfo = 'Koniec treningu!'
     }
 
 

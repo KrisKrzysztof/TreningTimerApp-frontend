@@ -62,7 +62,7 @@ export const ExerciseProgress = (props: Props) => {
         await timer(pause);
     };
 
-    return <div className="progress">
+    return <div className="exercise-progress">
 
         {showDialog ? <div>
             <label>

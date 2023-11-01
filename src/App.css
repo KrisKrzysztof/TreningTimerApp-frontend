@@ -22,7 +22,8 @@
 }
 
 .training-div {
-  height: 16em;
+  min-height: 17em;
+  height: auto;
 }
 
 p {
@@ -68,21 +69,21 @@ form button {
 }
 
 .green {
-  background-color: green;
+  background-image: radial-gradient(green 0.25em, transparent 1em);
 }
 .red {
-  background-color: red;
+  background-image: radial-gradient(grey 0.25em, transparent 1em);
 }
 .progress-view {
-  height: 5em;
+  height: auto;
 }
 .progress-fields {
   display: inline-block;
 }
 .progress-field {
-  min-width: 1em;
+  min-width: 2em;
   max-width: max-content;
-  height: 1em;
+  height: 2em;
   display: inline-block;
 }
 
