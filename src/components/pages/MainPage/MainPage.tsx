@@ -1,5 +1,5 @@
 import { TrainingEntity } from "types";
-import {TrainingsList} from "../common/TrainingsList/TrainingsList";
+import {TrainingsList} from "../../common/TrainingsList/TrainingsList";
 
 interface Props {
     trainingList: TrainingEntity[];

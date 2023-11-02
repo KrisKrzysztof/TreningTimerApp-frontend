@@ -1,8 +1,8 @@
 import React from "react";
 import './TrainingsList.css';
 import { TrainingEntity } from "types";
-import {ButtonDelete} from "../ButtonDelete";
-import {ButtonModify} from "../ButtonModify";
+import {ButtonDelete} from "./TrainingListButtons/ButtonDelete";
+import {ButtonModify} from "./TrainingListButtons/ButtonModify";
 import {Spinner} from "../Spinner/Spinner";
 
 interface Props {

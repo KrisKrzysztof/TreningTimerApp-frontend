@@ -1,8 +1,8 @@
 import {TrainingEntity} from "types";
 import {useEffect, useState} from "react";
-import {ExerciseProgress} from "./ExerciseProgress";
-import {RealStepContext, StepContext} from "../../contexts/StepContext";
-import {TrainingsList} from "../common/TrainingsList/TrainingsList";
+import {ExerciseProgress} from "./ExerciseProgress/ExerciseProgress";
+import {RealStepContext, StepContext} from "../../../../contexts/StepContext";
+import {TrainingsList} from "../../../common/TrainingsList/TrainingsList";
 
 interface Props {
     training: TrainingEntity;

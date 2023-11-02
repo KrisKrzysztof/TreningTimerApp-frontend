@@ -1,11 +1,11 @@
 import { TrainingEntity } from "types";
 import {FormEvent, useEffect, useState} from "react";
-import {apiUrl} from "../../../config/api";
+import {apiUrl} from "../../../../config/api";
 import {useParams} from "react-router-dom";
-import {OptionalExercises, optionalExercises} from "../../../utils/optionalExercises";
-import {Spinner} from "../../common/Spinner/Spinner";
-import {ExtraExerciseForm} from "./ExtraExerciseForm";
-import {BasicRequiredForm} from "./BasicRequiredForm";
+import {OptionalExercises, optionalExercises} from "../../../../utils/optionalExercises";
+import {Spinner} from "../../../common/Spinner/Spinner";
+import {ExtraExerciseForm} from "./ExtraExerciseForm/ExtraExerciseForm";
+import {BasicRequiredForm} from "./BasicRequiredForm/BasicRequiredForm";
 
 interface Props {
     modify: boolean;

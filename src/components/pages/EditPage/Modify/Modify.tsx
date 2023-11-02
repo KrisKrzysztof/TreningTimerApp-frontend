@@ -1,8 +1,8 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {apiUrl} from "../../config/api";
-import {TrainingForm} from "./TrainingForm/TrainingForm";
-import {Spinner} from "../common/Spinner/Spinner";
+import {apiUrl} from "../../../../config/api";
+import {TrainingForm} from "../TrainingForm/TrainingForm";
+import {Spinner} from "../../../common/Spinner/Spinner";
 
 export const Modify = () => {
     const [trainingName, setTrainingName] = useState<string>('');

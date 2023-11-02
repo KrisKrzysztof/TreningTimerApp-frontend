@@ -1,6 +1,6 @@
 import {useContext, useState} from "react";
-import audioFile from '../../assets/sound.mp3';
-import {RealStepContext, StepContext} from "../../contexts/StepContext";
+import audioFile from '../../../../../assets/sound.mp3';
+import {RealStepContext, StepContext} from "../../../../../contexts/StepContext";
 
 interface Props {
     exercisesLength: number

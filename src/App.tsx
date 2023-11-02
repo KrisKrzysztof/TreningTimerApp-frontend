@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import {Training} from "./components/Training/Training";
-import {Add} from "./components/edit/Add";
+import {Training} from "./components/pages/Training/Training";
+import {Add} from "./components/pages/EditPage/Add/Add";
 import {Header} from "./components/layout/Header/Header";
-import {MainPage} from "./components/layout/MainPage";
-import {EditPage} from "./components/edit/EditPage";
-import {Modify} from "./components/edit/Modify";
+import {MainPage} from "./components/pages/MainPage/MainPage";
+import {EditPage} from "./components/pages/EditPage/EditPage";
+import {Modify} from "./components/pages/EditPage/Modify/Modify";
 import {apiUrl} from "./config/api";
 import { TrainingEntity } from 'types';
 import {Footer} from "./components/layout/Footer/Footer";
