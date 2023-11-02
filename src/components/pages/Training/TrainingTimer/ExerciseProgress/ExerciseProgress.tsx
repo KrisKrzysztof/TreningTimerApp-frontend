@@ -75,7 +75,7 @@ export const ExerciseProgress = (props: Props) => {
 
         {showPauseInfo ? <div>
             <p> -= Pauza =- </p>
-            <p>Długość przerwy: {Math.floor(pause / 60)}:{zerofill(pause)}</p>
+            <p>Całkowita długość przerwy: {Math.floor(pause / 60)}:{zerofill(pause)}</p>
             <p>Czekaj {Math.floor(pauseCounter / 60)}:{zerofill(pauseCounter)}</p>
         </div> : null}
 
