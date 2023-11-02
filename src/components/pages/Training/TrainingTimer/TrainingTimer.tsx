@@ -186,7 +186,6 @@ export const TrainingTimer = (props: Props) => {
         serieInfo = 'Koniec treningu!'
     }
 
-
     return <div className='training-page'>
 
         <div className='training-div'>

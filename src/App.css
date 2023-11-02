@@ -81,6 +81,7 @@ form button {
 }
 .progress-view {
   height: auto;
+  min-height: 6em;
 }
 .progress-fields {
   display: inline-block;

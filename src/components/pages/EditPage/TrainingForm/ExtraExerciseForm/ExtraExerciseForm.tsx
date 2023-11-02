@@ -26,6 +26,7 @@ export const ExtraExerciseForm = (props: Props) => {
     }, [seconds, minutes]);
 
     return <div key={props.labelName}>
+
         <label>
             <p>{props.labelName}: </p>
             <input
@@ -36,10 +37,7 @@ export const ExtraExerciseForm = (props: Props) => {
                     event.target.value)}
             />
         </label><br/>
-        {/*<h5>*/}
-        {/*    logi:<br/>*/}
-        {/*    seconds: {seconds}, minutes: {minutes}, pauseTime: {pauseTime}*/}
-        {/*</h5>*/}
+
         <label>
             <p className='label-p-num'>Pauza: <> </>
                 <input
@@ -65,6 +63,7 @@ export const ExtraExerciseForm = (props: Props) => {
                 /> sekund.
             </p>
         </label>
+
         <hr/>
     </div>
 }

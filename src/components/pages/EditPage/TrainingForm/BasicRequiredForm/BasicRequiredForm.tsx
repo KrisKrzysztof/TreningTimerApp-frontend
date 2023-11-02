@@ -91,7 +91,6 @@ export const BasicRequiredForm = (props: Props) => {
                     /> sekund.
                 </p>
             </label>
-
             <hr/>
         </div>
     </div>

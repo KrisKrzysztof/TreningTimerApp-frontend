@@ -19,7 +19,7 @@ export const TrainingForm = (props: Props) => {
         description: null,
         numberOfSeries: 1,
         exerciseOne: '',
-        pauseOne: 1,
+        pauseOne: 10,
     });
     const [showExtraExercises, setShowExtraExercises] = useState<boolean>(false);
 

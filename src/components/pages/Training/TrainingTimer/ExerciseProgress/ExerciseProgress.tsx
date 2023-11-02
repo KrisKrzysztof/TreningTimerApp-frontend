@@ -1,6 +1,7 @@
 import {useContext, useState} from "react";
 import audioFile from '../../../../../assets/sound.mp3';
 import {RealStepContext, StepContext} from "../../../../../contexts/StepContext";
+import {zerofill} from "../../../../../utils/zerofill";
 
 interface Props {
     exercisesLength: number
@@ -14,7 +15,7 @@ export const ExerciseProgress = (props: Props) => {
     const {realStep, setRealStep} = useContext(RealStepContext);
     const [showPauseInfo, setShowPauseInfo] = useState(false);
     const [showDialog, setShowDialog] = useState(true);
-    const [pauseCounter, setPauseCounter] = useState('Czekaj ... sekund')
+    const [pauseCounter, setPauseCounter] = useState(0)
 
     const beep = async () => {
         const snd: HTMLAudioElement = new Audio(audioFile);
@@ -25,12 +26,12 @@ export const ExerciseProgress = (props: Props) => {
 
         await (async () => {
             let sec = pauseTime;
-            setPauseCounter(`Czekaj ${sec} sekund`);
+            setPauseCounter(sec);
 
             const second = 100; // milliseconds - default value 1000 (for full version)
             const seconder = setInterval(() => {
                 sec--;
-                setPauseCounter(`Czekaj ${sec} sekund`);
+                setPauseCounter(sec);
             }, second);
             if (step === exercisesLength) {
                 setTimeout(async () => {
@@ -73,9 +74,9 @@ export const ExerciseProgress = (props: Props) => {
         </div> : null}
 
         {showPauseInfo ? <div>
-            <p>Przerwa: {pause}</p>
             <p> -= Pauza =- </p>
-            <p> {pauseCounter} </p>
+            <p>Długość przerwy: {Math.floor(pause / 60)}:{zerofill(pause)}</p>
+            <p>Czekaj {Math.floor(pauseCounter / 60)}:{zerofill(pauseCounter)}</p>
         </div> : null}
 
     </div>
