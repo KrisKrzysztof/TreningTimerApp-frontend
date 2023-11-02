@@ -1,14 +1,14 @@
 import {TrainingEntity} from "types";
 import {useEffect, useState} from "react";
-import {ExerciseProgress} from "./ExerciseProgress/ExerciseProgress";
 import {RealStepContext, StepContext} from "../../../../contexts/StepContext";
 import {TrainingsList} from "../../../common/TrainingsList/TrainingsList";
+import {Exercise} from "./Exercise/Exercise";
 
 interface Props {
     training: TrainingEntity;
 }
 
-interface Exercise {
+export interface ExerciseInterface {
     exercise: string;
     pause: number;
 }
@@ -21,7 +21,7 @@ export const TrainingTimer = (props: Props) => {
     const [realStep, setRealStep] = useState(0);
 
     let [serieInfo, setSerieInfo] = useState('^^^')
-    let [exercises] = useState<Exercise[]>([]);
+    let [exercises] = useState<ExerciseInterface[]>([]);
 
     const makeSerie = () => {
         exercises.push({
@@ -105,21 +105,16 @@ export const TrainingTimer = (props: Props) => {
         setSerieInfo('Seria pierwsza.')
     }
 
-    const exercise = (stage: number, i: number) => {
-        return step === stage ?
-            <ExerciseProgress
-                exercisesLength={exercises.length}
-                exercise={exercises[i].exercise}
-                pause={exercises[i].pause}
-            /> : null
-    }
-
     const serie = () => {
         return exercises.map((el, i) => {
             return <div key={i}>
                 <RealStepContext.Provider value={{realStep, setRealStep}}>
                 <StepContext.Provider value={{step, setStep}}>
-                    {exercise(i + 1, i)}
+                    <Exercise
+                        exercises={exercises}
+                        step={step}
+                        stage={i + 1}
+                        element={i}/>
                 </StepContext.Provider>
                 </RealStepContext.Provider>
             </div>
