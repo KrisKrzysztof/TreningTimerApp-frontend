@@ -2,8 +2,8 @@ import {zerofill} from "../../../../utils/zerofill";
 import React from "react";
 
 interface Props {
-    exercise: string | undefined;
-    pause: number | undefined;
+    exercise: string;
+    pause: number;
 }
 
 export const ExerciseListElement = (props: Props) => {

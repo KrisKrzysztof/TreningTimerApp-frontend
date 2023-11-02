@@ -15,8 +15,15 @@ interface Props {
 }
 
 export const TrainingsList = (props: Props) => {
+    const {
+        nameAndDescription,
+        details,
+        modify,
+        trainingList,
+        onListChange,
+    } = props;
 
-    if (props.trainingList[0] === undefined) {
+    if (trainingList[0] === undefined) {
         return <Spinner/>
     }
 
@@ -29,28 +36,30 @@ export const TrainingsList = (props: Props) => {
     }
 
     return <ul className="training-list">
-        {props.trainingList.map(training =>
+        {trainingList.map(training =>
             <li key={training.id}>
 
-                {props.nameAndDescription ? <div>
+                {nameAndDescription ? <div>
                     <h3>{training.name}</h3>
                     <p>{training.description ||
                         'Brak opisu.'}</p>
                 </div> :null}
 
-                {props.modify && !training.id.startsWith('protected') ?
+                {modify && !training.id.startsWith('protected') ?
                     <ButtonModify toModify={training}/> : null}
 
-                {props.modify && !training.id.startsWith('protected') ?
+                {modify && !training.id.startsWith('protected') ?
                     <ButtonDelete toDelete={training}
-                                  onListChange={props.onListChange}/> : null}
+                                  onListChange={onListChange}/> : null}
 
-                {props.modify && training.id.startsWith('protected') ? <p>[Ten trening jest chroniony, nie można go usunąć ani modyfikować.]</p> : null}
+                {modify && training.id.startsWith('protected') ? <p>[Ten trening jest chroniony, nie można go usunąć ani modyfikować.]</p> : null}
 
-                {props.details ?
+                {details ?
                     <div className="exercises-list">
-                        <p>Trening składa się z {training.numberOfSeries} serii.<br/>
-                            Seria składa się z następujących ćwiczeń:</p>
+                        <p>
+                            Trening składa się z {training.numberOfSeries} serii.<br/>
+                            Seria składa się z następujących ćwiczeń
+                        </p>
 
                         <div> {keysArray(training).map(key => {
                             const exerciseKey = `exercise${key}` as keyof TrainingEntity;
@@ -68,7 +77,6 @@ export const TrainingsList = (props: Props) => {
                             }
                         )}
                         </div>
-
                         <hr/>
                     </div>
                     : null}

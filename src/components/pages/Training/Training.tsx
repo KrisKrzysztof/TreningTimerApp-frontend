@@ -9,12 +9,13 @@ interface Props {
 }
 
 export const Training = (props: Props) => {
+    const {trainingList, onListChange} = props;
     const [selectedTraining, setSelectedTraining] = useState<TrainingEntity[]>([]);
 
     const selectTraining = (event: ChangeEvent<HTMLSelectElement>) => {
         event.preventDefault();
-        setSelectedTraining(() => props.trainingList ?
-            props.trainingList.filter(el => el.id === event.target.value) : []);
+        setSelectedTraining(() => trainingList ?
+            trainingList.filter(el => el.id === event.target.value) : []);
     }
 
     return <div className="page">
@@ -25,7 +26,7 @@ export const Training = (props: Props) => {
                 value={selectedTraining[0]?.id}
                 onChange={selectTraining}>
                 <option value="">{'---==>> Wybierz trening <<==---'}</option>
-                {props.trainingList?.map((training) =>
+                {trainingList?.map((training) =>
                     <option
                         value={training.id}
                         key={training.id}
@@ -47,14 +48,15 @@ export const Training = (props: Props) => {
 
         <div className={selectedTraining[0] ? "hidden" : "show"}>
             <hr/>
-            <h4>Oto Lista dostępnych treningów wraz ze szczegółami.</h4>
+            <h4>Oto Lista dostępnych treningów wraz ze szczegółami:</h4>
             <hr/>
             <TrainingsList
                 nameAndDescription={true}
-                onListChange={props.onListChange}
-                trainingList={props.trainingList}
+                onListChange={onListChange}
+                trainingList={trainingList}
                 modify={false}
-                details={true}/>
+                details={true}
+            />
         </div>
 
     </div>
