@@ -9,6 +9,7 @@ import {EditPage} from "./components/edit/EditPage";
 import {Modify} from "./components/edit/Modify";
 import {apiUrl} from "./config/api";
 import { TrainingEntity } from 'types';
+import {Footer} from "./components/layout/Footer/Footer";
 
 export const App = () => {
     const [trainings, setTrainings] = useState<TrainingEntity[]>([]);
@@ -45,5 +46,6 @@ export const App = () => {
             <Route path="/edit/add" element={<Add/>}/>
             <Route path="/edit/:id" element={<Modify/>}/>
         </Routes>
+        <Footer/>
     </div>
 };
