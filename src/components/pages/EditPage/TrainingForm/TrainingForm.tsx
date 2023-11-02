@@ -21,7 +21,7 @@ export const TrainingForm = (props: Props) => {
         exerciseOne: '',
         pauseOne: 1,
     });
-    const [showExtraTrainings, setShowExtraTrainings] = useState<boolean>(false);
+    const [showExtraExercises, setShowExtraExercises] = useState<boolean>(false);
 
     let {id} = useParams();
 
@@ -33,7 +33,7 @@ export const TrainingForm = (props: Props) => {
                 const data = await res.json();
                 setTraining(data);
             };
-            props.modify ? getTraining() : setShowExtraTrainings(true);
+            props.modify ? getTraining() : setShowExtraExercises(true);
         } catch (error) {
             alert(error);
         } finally {
@@ -51,12 +51,11 @@ export const TrainingForm = (props: Props) => {
         })
     )
     const show = () => {
-        setShowExtraTrainings(true);
+        setShowExtraExercises(true);
     };
 
     const updateTraining = async (event: FormEvent): Promise<void> => {
         event.preventDefault();
-        console.log('do zapisu: ' + JSON.stringify(training));
         try {
             setLoading(true);
             const res = await fetch(`${apiUrl}/trainings/${training.id}`, {
@@ -120,7 +119,7 @@ export const TrainingForm = (props: Props) => {
                               keyValueSuffix={element.keyValueSuffix}
                               updateForm={updateForm}
                           />
-                          : <div key={element.labelName} className={showExtraTrainings ? 'block' : 'hidden'}>
+                          : <div key={element.labelName} className={showExtraExercises ? 'block' : 'hidden'}>
                               <ExtraExerciseForm
                                   key={element.labelName}
                                   labelName={element.labelName}
@@ -134,7 +133,7 @@ export const TrainingForm = (props: Props) => {
           }
           <div>
           {props.modify ?
-              <button type="button" onClick={show} className={showExtraTrainings || !checkEmptyRecords ? 'hidden' : 'block'}> DODAJ WIĘCEJ ĆWICZEŃ </button> : null}
+              <button type="button" onClick={show} className={showExtraExercises || !checkEmptyRecords ? 'hidden' : 'block'}> DODAJ WIĘCEJ ĆWICZEŃ </button> : null}
               <br/>
           <button type='submit'> ZAPISZ </button>
           </div>

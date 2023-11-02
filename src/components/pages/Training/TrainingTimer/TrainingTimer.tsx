@@ -131,9 +131,8 @@ export const TrainingTimer = (props: Props) => {
         return serie();
     }
 
-    let fields: number[] = [];
-
     const progresField = () => {
+        let fields: number[] = [];
         for (let i = 1; i < exercises.length+1; i++) {
             fields = [...fields, i];
         }

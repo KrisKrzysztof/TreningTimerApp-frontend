@@ -24,13 +24,13 @@ export const ExerciseProgress = (props: Props) => {
     const timer = async (pauseTime: number) => {
 
         await (async () => {
-            let i = pauseTime * 60;
-            setPauseCounter(`Czekaj ${i} sekund`);
+            let sec = pauseTime;
+            setPauseCounter(`Czekaj ${sec} sekund`);
 
-            const second = 50; // milliseconds - default value 1000 (for full version)
+            const second = 100; // milliseconds - default value 1000 (for full version)
             const seconder = setInterval(() => {
-                i--;
-                setPauseCounter(`Czekaj ${i} sekund`);
+                sec--;
+                setPauseCounter(`Czekaj ${sec} sekund`);
             }, second);
             if (step === exercisesLength) {
                 setTimeout(async () => {
@@ -47,7 +47,7 @@ export const ExerciseProgress = (props: Props) => {
                     const addStep = step + 1;
                     setStep(addStep);
                     setShowPauseInfo(false)
-                }, 60 * second * pauseTime);
+                }, second * pauseTime);
             }
 
         })();
