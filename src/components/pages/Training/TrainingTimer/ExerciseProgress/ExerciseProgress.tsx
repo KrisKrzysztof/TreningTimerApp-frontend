@@ -68,16 +68,16 @@ export const ExerciseProgress = (props: Props) => {
 
         {showDialog ? <div>
             <label>
-                <p> Zrób {exercise}.</p>
+                <p>Zrób <b>{exercise}</b>.</p>
                 <p>Zrobione?</p>
             </label>
             <button onClick={exerciseDone}>Tak jest!</button>
         </div> : null}
 
         {showPauseInfo ? <div>
-            <p> -= Pauza =- </p>
+            <h3> -= Pauza =- </h3>
+            <p>Czekaj <br/><span className='timer'> {Math.floor(pauseCounter / 60)}:{zerofill(pauseCounter)}</span></p>
             <p>Całkowita długość przerwy: {Math.floor(pause / 60)}:{zerofill(pause)}</p>
-            <p>Czekaj {Math.floor(pauseCounter / 60)}:{zerofill(pauseCounter)}</p>
         </div> : null}
 
     </div>

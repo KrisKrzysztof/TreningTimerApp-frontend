@@ -8,7 +8,7 @@
 }
 
 .green {
-    background-image: radial-gradient(green 0.25em, transparent 1em);
+    background-image: radial-gradient(#01fa01 0.25em, transparent 1em);
 }
 .red {
     background-image: radial-gradient(#86dade 0.25em, transparent 1em);

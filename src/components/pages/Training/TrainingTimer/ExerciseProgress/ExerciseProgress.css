@@ -1,3 +1,10 @@
 .exercise-progress {
     min-height: 6em;
 }
+
+.timer {
+    color: #750628;
+    font-family: Digital7, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+}

@@ -18,3 +18,9 @@ code {
   src: local('Gruppo'),
   url('./fonts/Gruppo-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Digital7';
+  src: local('Digital7'),
+  url('./fonts/digital-7.ttf') format('truetype');
+}
