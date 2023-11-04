@@ -49,7 +49,7 @@ export const Training = (props: Props) => {
         <div className={selectedTraining[0] ? "hidden" : "show"}>
             <hr/>
             <h4>Oto Lista dostępnych treningów wraz ze szczegółami:</h4>
-            <hr/>
+            <hr className='hr-trainingList'/>
             <TrainingsList
                 nameAndDescription={true}
                 onListChange={onListChange}

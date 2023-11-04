@@ -1,18 +1,13 @@
 import './Header.css';
+import logo from '../../../assets/logoBig.png';
 
 export const Header = () => (
     <header className="App-header">
-        <a
-            className="header-element title"
-            href="/"
-        >Training Timer APP</a>
-        <a
-            className="header-element"
-            href="/training"
+        <a className="header-element title" href="/"
+        ><img className='logo-img' src={logo} alt='Training Timer APP'/></a>
+        <a className="header-element" href="/training"
         >ROZPOCZNIJ TRENING</a>
-        <a
-            className="header-element"
-            href="/edit"
+        <a className="header-element" href="/edit"
         >SEKCJA EDYCJI TRENINGÓW</a>
     </header>
 )

@@ -125,7 +125,7 @@ export const TrainingTimer = (props: Props) => {
         if (step === exercises.length + 1) {
             return <div>
                 <h4> 😊😎🥳 Dobra robota! 🥳😎😊 <br/> 💪💪 💪💪 </h4>
-                <small>Odśwież stronę, aby rozpocząć nowy trening, lub wybierz coś z menu jeśli chcesz zrobić coś innego.</small>
+                <small>Odśwież stronę, aby rozpocząć nowy trening,<br/>lub wybierz dowolną opcję z menu u góry, jeśli chcesz zrobić coś innego.</small>
             </div>
         }
         return serie();
@@ -223,15 +223,6 @@ export const TrainingTimer = (props: Props) => {
                 details={true}/>
 
         </div>
-
-        {/*[strona w budowie]*/}
-
-        {/*<h5>development info</h5>*/}
-        {/*<p>serii {training.numberOfSeries}</p>*/}
-        {/*<p>krok: {step}</p>*/}
-        {/*<p>real step: {realStep}</p>*/}
-
-        {/*<p>ćw: {JSON.stringify(exercises)}</p>*/}
 
     </div>
 }

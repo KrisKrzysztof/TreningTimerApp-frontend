@@ -17,7 +17,7 @@ export const MainPage = (props: Props) =>
         <hr/>
         <h2>WYBIERZ Z MENU U GÓRY CO CHCESZ ZROBIĆ</h2>
         <hr/>
-        <p>Oto aktualna lista treningów z krótkim opisem (jeśli dodano):</p>
+        <p>Oto aktualna lista dostępnych treningów:</p>
         <TrainingsList
             nameAndDescription={true}
             onListChange={props.onListChange}

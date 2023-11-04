@@ -1,24 +1,36 @@
 .App-header {
-    color: white;
     background-color: #750628;
-    padding-inline: 3em;
+    padding-inline: 5em;
     align-items: center;
     display: flex;
     justify-content: space-between;
     font-size: calc(1px + 2vmin);
 }
 .header-element {
-    color: white;
+    color: #9AF5F8;
     font-weight: bold;
     text-decoration: none;
     font-size: 1.1em;
-    margin: 3em;
+    padding: 1em;
 }
 .header-element:hover {
-    color: #bebebe;
+    color: white;
+    background: #5d051d;
+    /*background: red;*/
+
+}
+.header-element:active {
+    background-color: #910832;
+    color: #f1cc53;
+}
+
+
+.logo-img {
+    height: 2em;
+    width: 4em;
 }
 
 .title {
-    margin: 1em;
     font-size: 2em;
+    padding-bottom: 0.5em;
 }

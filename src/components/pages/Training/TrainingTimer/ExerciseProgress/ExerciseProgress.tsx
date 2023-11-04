@@ -28,7 +28,7 @@ export const ExerciseProgress = (props: Props) => {
             let sec = pauseTime;
             setPauseCounter(sec);
 
-            const second = 100; // milliseconds - default value 1000 (for full version)
+            const second = 1000; // milliseconds - default value 1000 (for full version)
             const seconder = setInterval(() => {
                 sec--;
                 setPauseCounter(sec);

@@ -27,8 +27,8 @@ export const TrainingsList = (props: Props) => {
         return <Spinner/>
     }
 
-    const keysArray = (element: TrainingEntity) => {
-        const keyArray = Object.keys(element).filter(element => element.startsWith('exercise'));
+    const exercisesKeysArray = (obj: TrainingEntity) => {
+        const keyArray = Object.keys(obj).filter(element => element.startsWith('exercise'));
         return keyArray.map((item) => {
             const idKeys = item.split('exercise');
             return idKeys[1];
@@ -61,7 +61,7 @@ export const TrainingsList = (props: Props) => {
                             Seria składa się z następujących ćwiczeń
                         </p>
 
-                        <div> {keysArray(training).map(key => {
+                        <div> {exercisesKeysArray(training).map(key => {
                             const exerciseKey = `exercise${key}` as keyof TrainingEntity;
                             const pauseKey = `pause${key}` as keyof TrainingEntity;
                             const exerciseValue = training[exerciseKey] as string;
@@ -74,10 +74,9 @@ export const TrainingsList = (props: Props) => {
                                     pause={pauseValue}/>
                             }
                             return null;
-                            }
-                        )}
+                            })}
                         </div>
-                        <hr/>
+                        <hr className='hr-trainingList'/>
                     </div>
                     : null}
             </li>

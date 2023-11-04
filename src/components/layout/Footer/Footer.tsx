@@ -3,11 +3,11 @@ export const Footer = () => {
         <br/><hr/><hr/>
         <small>
             <p>
-                To jest wersja deweloperska aplikacji, wiele funkcjonalności (głównie graficznych) wymaga jeszcze dopracowania lub przebudowania.
+                To jest wersja rozwojowa aplikacji, wiele funkcjonalności (głównie graficznych) wymaga jeszcze przebudowania lub dopracowania.
             </p>
             <p>© Wszelkie prawa zastrzeżone.</p>
             <p>
-                Kontakt z autorem przez <a className="sign" href="https://www.facebook.com/krzysztof.ivan/">facebook</a>.
+                Kontakt z autorem: <a className="sign" href="https://www.facebook.com/krzysztof.ivan/">facebook</a>.
             </p>
         </small>
     </div>

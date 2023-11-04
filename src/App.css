@@ -19,11 +19,16 @@ a {
 }
 .navi:hover {
   color: #5d5d5d;
+  background: #dadada;
+}
+.navi:active {
+  color: #5d051d;
+  background: #ffde59;
 }
 
 .page {
   margin-block: 3vh;
-  margin-inline: 10vw;
+  margin-inline: 8vw;
 }
 
 .training-div {
@@ -36,7 +41,7 @@ p {
 }
 
 hr {
-  width: 75vw;
+  /*width: 75vw;*/
 }
 
 form {
@@ -73,6 +78,9 @@ form button {
   width: 30%;
 }
 
+.exercise-progress {
+  min-height: 6em;
+}
 .green {
   background-image: radial-gradient(green 0.25em, transparent 1em);
 }

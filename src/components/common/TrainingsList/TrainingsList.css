@@ -9,3 +9,7 @@ ul {
 .exercises-list p {
     margin-bottom: 0.25em;
 }
+
+.hr-trainingList {
+    width: 50vh;
+}
