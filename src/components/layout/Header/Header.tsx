@@ -1,5 +1,5 @@
 import './Header.css';
-import logo from '../../../assets/logoBig.png';
+import logo from '../../../assets/logo.gif';
 
 export const Header = () => (
     <header className="App-header">

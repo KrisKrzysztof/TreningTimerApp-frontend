@@ -1,0 +1,33 @@
+form {
+    justify-content: space-around;
+    display: grid;
+}
+form h4 {
+    margin-bottom: 1em;
+    text-align: center;
+}
+form p {
+    margin: auto;
+    text-align: center;
+}
+form .label-p-basic {
+    display: inline;
+    width: 35vw;
+}
+
+form textarea {
+    margin-block: 0.5em;
+    width: 40vw;
+}
+form input {
+    width: 30vw;
+}
+form .label-inp-num {
+    width: 3em;
+}
+form .label-p-num {
+    display: inline;
+}
+form button {
+    width: 30%;
+}

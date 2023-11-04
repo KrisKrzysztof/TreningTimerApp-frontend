@@ -1,0 +1,14 @@
+.add-link {
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.add-link:hover {
+    color: #5d5d5d;
+    background: #ffde59;
+}
+.add-link:active {
+    color: #5d051d;
+    background: white;
+}

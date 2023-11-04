@@ -1,3 +1,4 @@
+import './TrainingTimer.css';
 import {TrainingEntity} from "types";
 import {useEffect, useState} from "react";
 import {RealStepContext, StepContext} from "../../../../contexts/StepContext";
@@ -190,8 +191,11 @@ export const TrainingTimer = (props: Props) => {
 
         <div className='training-div'>
 
-            <h1> TRENING </h1>
-            <h2> {training.name} </h2>
+            <div className='training-name'>
+                <h2> TRENING </h2>
+                <h1> {training.name} </h1>
+            </div>
+
 
             <button
                 className={trainingStarted ? 'hidden' : 'block'}

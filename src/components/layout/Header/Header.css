@@ -1,6 +1,6 @@
 .App-header {
     background-color: #750628;
-    padding-inline: 5em;
+    padding-inline: 10vw;
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -16,8 +16,6 @@
 .header-element:hover {
     color: white;
     background: #5d051d;
-    /*background: red;*/
-
 }
 .header-element:active {
     background-color: #910832;
@@ -26,11 +24,13 @@
 
 
 .logo-img {
-    height: 2em;
-    width: 4em;
+    height: 3em;
+    width: 3em;
 }
 
 .title {
     font-size: 2em;
-    padding-bottom: 0.5em;
+    padding: 0.5em;
+    padding-inline: 1.5em;
+    /*padding-bottom: 0.5em;*/
 }

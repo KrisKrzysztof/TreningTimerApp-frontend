@@ -1,3 +1,4 @@
+import './TrainingForm.css';
 import { TrainingEntity } from "types";
 import {FormEvent, useEffect, useState} from "react";
 import {apiUrl} from "../../../../config/api";

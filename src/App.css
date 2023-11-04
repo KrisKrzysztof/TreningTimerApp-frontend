@@ -2,116 +2,22 @@
   text-align: center;
 }
 
-a {
-  text-decoration: none;
-  font-weight: bold;
+.page {
+  margin-block: 3vh;
+  margin-inline: 8vw;
 }
 
 .hidden {
   display: none;
 }
 
-.navi {
-  font-size: 1.3em;
-  color: black;
-  font-weight: bold;
+a {
   text-decoration: none;
-}
-.navi:hover {
-  color: #5d5d5d;
-  background: #dadada;
-}
-.navi:active {
-  color: #5d051d;
-  background: #ffde59;
-}
-
-.page {
-  margin-block: 3vh;
-  margin-inline: 8vw;
-}
-
-.training-div {
-  min-height: 17em;
-  height: auto;
+  font-weight: bold;
 }
 
 p {
   margin-block: 0.5em;
 }
 
-hr {
-  /*width: 75vw;*/
-}
 
-form {
-  justify-content: space-around;
-  display: grid;
-}
-form h4 {
-  margin-bottom: 1em;
-  text-align: center;
-}
-form p {
-  margin: auto;
-  text-align: center;
-}
-form .label-p-basic {
-  display: inline;
-  width: 35vw;
-}
-
-form textarea {
-  margin-block: 0.5em;
-  width: 40vw;
-}
-form input {
-  width: 30vw;
-}
-form .label-inp-num {
-  width: 3em;
-}
-form .label-p-num {
-  display: inline;
-}
-form button {
-  width: 30%;
-}
-
-.exercise-progress {
-  min-height: 6em;
-}
-.green {
-  background-image: radial-gradient(green 0.25em, transparent 1em);
-}
-.red {
-  background-image: radial-gradient(grey 0.25em, transparent 1em);
-}
-.progress-view {
-  height: auto;
-  min-height: 6em;
-}
-.progress-fields {
-  display: inline-block;
-}
-.progress-field {
-  min-width: 2em;
-  max-width: max-content;
-  height: 2em;
-  display: inline-block;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

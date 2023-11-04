@@ -1,0 +1,29 @@
+.training-div {
+    min-height: 17em;
+    height: auto;
+}
+
+.training-name {
+    font-family: 'Gruppo', sans-serif;
+}
+
+.green {
+    background-image: radial-gradient(green 0.25em, transparent 1em);
+}
+.red {
+    background-image: radial-gradient(#86dade 0.25em, transparent 1em);
+}
+
+.progress-view {
+    height: auto;
+    min-height: 6em;
+}
+.progress-fields {
+    display: inline-block;
+}
+.progress-field {
+    min-width: 2em;
+    max-width: max-content;
+    height: 2em;
+    display: inline-block;
+}
