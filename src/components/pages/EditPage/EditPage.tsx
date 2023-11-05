@@ -12,7 +12,7 @@ export const EditPage = (props: Props) =>
     <div className="page">
         <div>
             <a className="add-link"
-               href="/edit/add"> {'> STWÓRZ NOWY TRENING KLIKAJĄC TUTAJ <'} </a><br/>
+               href="/edit/add"> STWÓRZ NOWY TRENING KLIKAJĄC TUTAJ </a><br/>
             <h4>LUB</h4>
             <h3>EDYTUJ ISTNIEJĄCY TRENING KLIKAJĄC W ODPOWIEDNI PRZYCISK NA LIŚCIE DOSTĘPNYCH TRENINGÓW</h3>
         </div>

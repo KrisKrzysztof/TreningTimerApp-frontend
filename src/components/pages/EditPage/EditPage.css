@@ -1,14 +1,16 @@
 .add-link {
-    font-size: 1.3em;
-    color: black;
+    background-color: #dc4000;
+    color: #9AF5F8;
+    font-size: 1.2em;
     font-weight: bold;
+    padding: 0.5em 1em;
     text-decoration: none;
 }
 .add-link:hover {
-    color: #5d5d5d;
-    background: #ffde59;
+    background: #c43800;
+    color: white;
 }
 .add-link:active {
-    color: #5d051d;
-    background: white;
+    color: #f1cc53;
+    background: #ec4400;
 }

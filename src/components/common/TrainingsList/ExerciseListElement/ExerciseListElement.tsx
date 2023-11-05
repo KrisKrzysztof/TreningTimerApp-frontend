@@ -9,8 +9,8 @@ interface Props {
 export const ExerciseListElement = (props: Props) => {
     const {exercise, pause} = props;
   return <div>
-      {exercise ? <p>{exercise}</p> : null}
+      {exercise ? <p className='exercises-name'>{exercise}</p> : null}
       {pause ?
-          <small>Przerwa {Math.floor(pause / 60)}:{zerofill(pause)}</small> : null}
+          <small className='exercises-name'>Przerwa <span className='exercises-name-time'>{Math.floor(pause / 60)}:{zerofill(pause)}</span></small> : null}
   </div>
 }

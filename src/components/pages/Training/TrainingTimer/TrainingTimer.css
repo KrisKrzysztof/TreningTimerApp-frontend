@@ -1,10 +1,11 @@
 .training-div {
-    min-height: 17em;
+    min-height: 18em;
     height: auto;
 }
 
 .training-name {
-    font-family: 'Gruppo', sans-serif;
+    font-family: Gruppo, sans-serif;
+    font-size: large;
 }
 
 .green {

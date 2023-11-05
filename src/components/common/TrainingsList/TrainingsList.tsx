@@ -41,7 +41,7 @@ export const TrainingsList = (props: Props) => {
 
                 {nameAndDescription ? <div>
                     <h3>{training.name}</h3>
-                    <p>{training.description ||
+                    <p className='training-list-description'>{training.description ||
                         'Brak opisu.'}</p>
                 </div> :null}
 
@@ -56,9 +56,9 @@ export const TrainingsList = (props: Props) => {
 
                 {details ?
                     <div className="exercises-list">
-                        <p>
+                        <p className="exercises-list-p">
                             Trening składa się z {training.numberOfSeries} serii.<br/>
-                            Seria składa się z następujących ćwiczeń
+                            Seria składa się z następujących ćwiczeń:
                         </p>
 
                         <div> {exercisesKeysArray(training).map(key => {

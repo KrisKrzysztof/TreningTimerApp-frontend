@@ -1,5 +1,5 @@
 .App-header {
-    background-color: #750628;
+    background-color: #dc4000;
     padding-inline: 10vw;
     align-items: center;
     display: flex;
@@ -14,11 +14,11 @@
     padding: 1em;
 }
 .header-element:hover {
+    background: #c43800;
     color: white;
-    background: #5d051d;
 }
 .header-element:active {
-    background-color: #910832;
+    background-color: #ec4400;
     color: #f1cc53;
 }
 
@@ -34,3 +34,11 @@
     padding-inline: 1.5em;
     /*padding-bottom: 0.5em;*/
 }
+
+/*
+yellow cc9300
+orange 9a4f2a
+white
+black
+grey
+ */
