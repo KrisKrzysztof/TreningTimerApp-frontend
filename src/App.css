@@ -20,4 +20,20 @@ p {
   margin-block: 0.5em;
 }
 
+button, .button {
+  background-color: #dc4000;
+  color: #9AF5F8;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+}
+button:hover, .button:hover {
+  background: #c43800;
+  color: white;
+}
+button:active, .button:active {
+  color: #f1cc53;
+  background: #ec4400;
+}
+
 

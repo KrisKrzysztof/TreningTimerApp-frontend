@@ -7,6 +7,6 @@ interface Props {
 
 export const ButtonModify = (props: Props) => {
     return <div style={{display: "inline"}}>
-        <input type="button" onClick={() => window.location.href=`/edit/${props.toModify.id}`} value="Edytuj"/>
+        <input className='button' type="button" onClick={() => window.location.href=`/edit/${props.toModify.id}`} value="Edytuj"/>
     </div>
 }

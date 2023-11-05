@@ -1,16 +1,3 @@
 .add-link {
-    background-color: #dc4000;
-    color: #9AF5F8;
     font-size: 1.2em;
-    font-weight: bold;
-    padding: 0.5em 1em;
-    text-decoration: none;
-}
-.add-link:hover {
-    background: #c43800;
-    color: white;
-}
-.add-link:active {
-    color: #f1cc53;
-    background: #ec4400;
 }

@@ -11,7 +11,7 @@ interface Props {
 export const EditPage = (props: Props) =>
     <div className="page">
         <div>
-            <a className="add-link"
+            <a className="add-link button"
                href="/edit/add"> STWÓRZ NOWY TRENING KLIKAJĄC TUTAJ </a><br/>
             <h4>LUB</h4>
             <h3>EDYTUJ ISTNIEJĄCY TRENING KLIKAJĄC W ODPOWIEDNI PRZYCISK NA LIŚCIE DOSTĘPNYCH TRENINGÓW</h3>
