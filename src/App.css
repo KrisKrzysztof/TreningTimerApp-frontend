@@ -21,19 +21,19 @@ p {
 }
 
 button, .button {
-  background-color: #dc4000;
+  background-color: #ec4400;
   color: #9AF5F8;
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;
 }
 button:hover, .button:hover {
-  background: #c43800;
+  background: #cc3d01;
   color: white;
 }
 button:active, .button:active {
-  color: #f1cc53;
   background: #ec4400;
+  color: #f1cc53;
 }
 
 

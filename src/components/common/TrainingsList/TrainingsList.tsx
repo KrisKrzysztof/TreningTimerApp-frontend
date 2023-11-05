@@ -52,7 +52,7 @@ export const TrainingsList = (props: Props) => {
                     <ButtonDelete toDelete={training}
                                   onListChange={onListChange}/> : null}
 
-                {modify && training.id.startsWith('protected') ? <p>[Ten trening jest chroniony, nie można go usunąć ani modyfikować.]</p> : null}
+                {modify && training.id.startsWith('protected') ? <small><b>[ℹ] Ten trening jest chroniony, nie można go usunąć ani modyfikować.</b></small> : null}
 
                 {details ?
                     <div className="exercises-list">

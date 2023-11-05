@@ -3,7 +3,7 @@ export const Footer = () => {
         <br/><hr/><hr/>
         <small>
             <p>
-                To jest wersja rozwojowa aplikacji, wiele funkcjonalności (głównie graficznych) wymaga jeszcze przebudowania lub dopracowania.
+                To jest wersja rozwojowa aplikacji, wiele funkcjonalności wymaga jeszcze dopracowania.
             </p>
             <p>© Wszelkie prawa zastrzeżone.</p>
             <p>
