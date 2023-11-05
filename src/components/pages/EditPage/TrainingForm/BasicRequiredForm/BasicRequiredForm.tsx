@@ -11,6 +11,7 @@ export const BasicRequiredForm = (props: Props) => {
     let seconds = props.training.pauseOne % 60;
 
     return <div>
+
         <label>
             <p className="label-p-basic">Nazwa: </p>
             <input
@@ -38,8 +39,9 @@ export const BasicRequiredForm = (props: Props) => {
                 type="number"
                 value={props.training.numberOfSeries}
                 onChange={event => props.updateForm('numberOfSeries', Number(event.target.value))}/>
-        </label><br/>
-        <div>
+        </label>
+        <br/>
+        <div className='form-exercises'>
             <h4>Lista ćwiczeń w każdej serii</h4>
             <small className="small-form">Możesz dodać do dziesięciu ćwiczeń, minimum jedno.</small>
         </div>
@@ -71,13 +73,13 @@ export const BasicRequiredForm = (props: Props) => {
                             );
                         }
                         }
-                    /> minut(y) <> </>
+                    /> minut <> </>
                     <input
                         required
                         className='label-inp-num'
                         min={0}
                         max={59}
-                        step={10}
+                        step={5}
                         type="number"
                         value={seconds}
                         onChange={ event => {

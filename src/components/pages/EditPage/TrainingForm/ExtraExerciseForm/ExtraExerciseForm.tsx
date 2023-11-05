@@ -49,12 +49,12 @@ export const ExtraExerciseForm = (props: Props) => {
                     onChange={ event =>
                         setMinutes(Number(event.target.value))
                     }
-                /> minut(y) <> </>
+                /> minut <> </>
                 <input
                     className='label-inp-num'
                     min={0}
                     max={59}
-                    step={10}
+                    step={5}
                     type="number"
                     value={seconds}
                     onChange={ event =>
