@@ -1,8 +1,8 @@
 import './index.css';
-import './fonts/Gruppo-Regular.ttf';
-import './fonts/digital-7.ttf';
-import './fonts/Orbitron.ttf'
-import './fonts/RacingSansOne-Regular.ttf'
+import './fonts/Gruppo-Regular.woff2';
+import './fonts/digital-7.woff2';
+import './fonts/Orbitron.woff2'
+import './fonts/RacingSansOne-Regular.woff2'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {App} from './App';

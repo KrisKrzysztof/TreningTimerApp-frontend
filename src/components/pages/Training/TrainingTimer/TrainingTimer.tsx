@@ -199,7 +199,7 @@ export const TrainingTimer = (props: Props) => {
 
             <button
                 className={trainingStarted ? 'hidden' : 'block'}
-                onClick={start}> Start!
+                onClick={start}> START!
             </button>
             <h3> {serieInfo} </h3>
             <h2 className={trainingStarted ? 'hidden' : 'block'}>
