@@ -76,9 +76,9 @@ There are **three main parts** of the application:
 
 ## How to run
 The Training Timer App was released on [Network Manager server](https://netcloud24.com/pl/index) on this address: https://trainingtimer.networkmanager.pl/ 
-### However, you can just clone this repository with this command:
-### `git clone https://github.com/KrisKrzysztof/TreningTimerApp-backend.git`
-then you can build your own production version using scripts and run ths app locally with following scripts:
+### However, you can just use git to clone this repository with this command:
+### `git clone https://github.com/KrisKrzysztof/TreningTimerApp-frontend.git`
+#### then you can build your own production version using scripts and run ths app locally with following scripts:
 ### `npm start`
 Just like basic React instruction say:\
 it runs the app in the development mode.\
