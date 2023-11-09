@@ -1,0 +1,1 @@
+export const zerofill = (value: number) => (value % 60) < 10 ? '0'+(value % 60) : (value % 60);

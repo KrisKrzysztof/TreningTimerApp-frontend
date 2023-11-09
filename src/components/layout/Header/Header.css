@@ -1,0 +1,34 @@
+.App-header {
+    background-color: #dc4000;
+    padding-inline: 10vw;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(1px + 2vmin);
+}
+
+.header-element {
+    color: #9AF5F8;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 1em;
+}
+.header-element:hover {
+    background: #cc3d01;
+    color: white;
+}
+.header-element:active {
+    background-color: #ec4400;
+    color: #f1cc53;
+}
+
+.title {
+    font-size: 2em;
+    padding: 0 1.5em;
+}
+
+.logo-img {
+    height: 3em;
+    width: 3em;
+}

@@ -1,0 +1,42 @@
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+.training-list-description {
+    font-family: RacingSansOne, sans-serif;
+    font-size: 1.2em;
+}
+
+.training-list h3 {
+    font-family: Gruppo, sans-serif;
+    font-size: 2em;
+    margin-bottom: -0.1em;
+}
+
+.exercises-list-p {
+    font-family: Tahoma, sans-serif;
+}
+
+.exercises-list p {
+    margin-bottom: 0.25em;
+}
+
+.exercises-name {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.exercises-name-time {
+    font-family: Orbitron, sans-serif;
+}
+
+.hr-trainingList {
+    width: 50vh;
+}
+
+.box {
+    border: red solid 1px;
+    padding: 0.2em 0.4em;
+    font-weight: bold;
+    background-color: rgba(0,0,0, 10%);
+}
