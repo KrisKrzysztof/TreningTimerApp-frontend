@@ -1,5 +1,6 @@
 import { TrainingEntity } from "types";
 import React from "react";
+import {apiUrl} from "../../../../config/api";
 
 interface Props {
     toDelete: TrainingEntity;
@@ -14,7 +15,7 @@ export const ButtonDelete = (props: Props) => {
             return;
         }
 
-        const res = await fetch(`http://localhost:3001/api/trainings/${props.toDelete.id}`, {
+        const res = await fetch(`${apiUrl}trainings/${props.toDelete.id}`, {
             method: 'DELETE',
         });
 
