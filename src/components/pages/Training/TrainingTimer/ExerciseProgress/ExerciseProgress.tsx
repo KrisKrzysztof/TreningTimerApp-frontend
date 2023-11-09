@@ -1,6 +1,7 @@
 import './ExerciseProgress.css';
 import {useContext, useState} from "react";
-import audioFile from '../../../../../assets/sound.mp3';
+import audioPause from '../../../../../assets/whistle.mp3';
+import audioFinish from '../../../../../assets/finish.mp3';
 import {RealStepContext, StepContext} from "../../../../../contexts/StepContext";
 import {zerofill} from "../../../../../utils/zerofill";
 
@@ -18,8 +19,13 @@ export const ExerciseProgress = (props: Props) => {
     const [showDialog, setShowDialog] = useState(true);
     const [pauseCounter, setPauseCounter] = useState(0)
 
-    const beep = async () => {
-        const snd: HTMLAudioElement = new Audio(audioFile);
+    const finalSound = async () => {
+        const snd: HTMLAudioElement = new Audio(audioFinish);
+        await snd.play();
+    };
+
+    const pauseSound = async () => {
+        const snd: HTMLAudioElement = new Audio(audioPause);
         await snd.play();
     };
 
@@ -29,7 +35,7 @@ export const ExerciseProgress = (props: Props) => {
             let sec = pauseTime;
             setPauseCounter(sec);
 
-            const second = 1000; // milliseconds - default value 1000 (for full version)
+            const second = 1000;
             const seconder = setInterval(() => {
                 sec--;
                 setPauseCounter(sec);
@@ -37,7 +43,7 @@ export const ExerciseProgress = (props: Props) => {
             if (step === exercisesLength) {
                 setTimeout(async () => {
                     clearInterval(seconder);
-                    await beep();
+                    await finalSound();
                     const addStep = step + 1;
                     setStep(addStep);
                     setShowPauseInfo(false)
@@ -45,7 +51,7 @@ export const ExerciseProgress = (props: Props) => {
             } else {
                 setTimeout(async () => {
                     clearInterval(seconder);
-                    await beep();
+                    await pauseSound();
                     const addStep = step + 1;
                     setStep(addStep);
                     setShowPauseInfo(false)
