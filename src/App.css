@@ -26,13 +26,17 @@ button, .button {
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonborder;
+  border-image: initial;
 }
 button:hover, .button:hover {
   background: #cc3d01;
   color: white;
 }
 button:active, .button:active {
-  background: #ec4400;
+  background: #ff5615;
   color: #f1cc53;
 }
 

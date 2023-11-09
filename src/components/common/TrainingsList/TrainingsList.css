@@ -33,3 +33,10 @@ ul {
 .hr-trainingList {
     width: 50vh;
 }
+
+.box {
+    border: red solid 1px;
+    padding: 0.2em 0.4em;
+    font-weight: bold;
+    background-color: rgba(0,0,0, 10%);
+}
