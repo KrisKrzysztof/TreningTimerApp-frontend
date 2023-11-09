@@ -15,7 +15,7 @@ export const ButtonDelete = (props: Props) => {
             return;
         }
 
-        const res = await fetch(`${apiUrl}trainings/${props.toDelete.id}`, {
+        const res = await fetch(`${apiUrl}/trainings/${props.toDelete.id}`, {
             method: 'DELETE',
         });
 
