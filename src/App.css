@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-bottom: 1em;
   background: radial-gradient(ellipse at top, #ffe99d, #ffe99d, transparent),
   radial-gradient(ellipse at bottom, #ffe99d, #ffe99d, #dc4000);
 }
