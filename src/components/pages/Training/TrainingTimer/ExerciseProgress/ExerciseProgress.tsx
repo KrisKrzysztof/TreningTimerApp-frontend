@@ -70,6 +70,13 @@ export const ExerciseProgress = (props: Props) => {
         await timer(pause);
     };
 
+    // document.addEventListener('keydown', async event => {
+    //     if (event.key === 'Enter'
+    //         || event.key === 'Space'
+    //         || event.code === undefined)
+    //         await exerciseDone();
+    // });
+
     return <div className="exercise-progress">
 
         {showDialog ? <div>

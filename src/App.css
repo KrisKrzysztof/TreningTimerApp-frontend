@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background: radial-gradient(ellipse at top, #ffe99d, #ffe99d, transparent),
+  radial-gradient(ellipse at bottom, #ffe99d, #ffe99d, #dc4000);
 }
 
 .page {
@@ -40,4 +42,8 @@ button:active, .button:active {
   color: #f1cc53;
 }
 
-
+@media screen and (max-width: 800px) {
+  .App {
+    width: 100vw;
+  }
+}
