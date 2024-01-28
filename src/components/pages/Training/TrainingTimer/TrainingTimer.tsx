@@ -125,7 +125,7 @@ export const TrainingTimer = (props: Props) => {
     const progress = () => {
         if (step === exercises.length + 1) {
             return <div>
-                <h4> 😊😎🥳 Dobra robota! 🥳😎😊 <br/> 💪💪 💪💪 </h4>
+                <h4> 😊😎🥳 Dobra robota! 🥳😎😊 <br/> 👏💪 💪👏 </h4>
                 <small>Odśwież stronę, aby rozpocząć nowy trening,<br/>lub wybierz dowolną opcję z menu u góry, jeśli chcesz zrobić coś innego.</small>
             </div>
         }
