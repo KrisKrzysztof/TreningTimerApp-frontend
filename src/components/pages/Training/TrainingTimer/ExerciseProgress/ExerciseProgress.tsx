@@ -1,5 +1,5 @@
 import './ExerciseProgress.css';
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import audioPause from '../../../../../assets/whistle.mp3';
 import audioFinish from '../../../../../assets/finish.mp3';
 import {RealStepContext, StepContext} from "../../../../../contexts/StepContext";
@@ -17,7 +17,21 @@ export const ExerciseProgress = (props: Props) => {
     const {realStep, setRealStep} = useContext(RealStepContext);
     const [showPauseInfo, setShowPauseInfo] = useState(false);
     const [showDialog, setShowDialog] = useState(true);
-    const [pauseCounter, setPauseCounter] = useState(0)
+    const [pauseCounter, setPauseCounter] = useState(0);
+
+    useEffect(() => {
+        const handleKeyPress = async (event: KeyboardEvent) => {
+            if (event.code === 'Enter' || event.code === 'Space') {
+                await exerciseDone();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyPress);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyPress);
+        };
+    });
 
     const finalSound = async () => {
         const snd: HTMLAudioElement = new Audio(audioFinish);
@@ -63,19 +77,15 @@ export const ExerciseProgress = (props: Props) => {
     }
 
     const exerciseDone = async () => {
+        if (showPauseInfo) {
+            return;
+        }
         setShowPauseInfo(true)
         setShowDialog(false);
         const addRealStep = realStep + 1;
         setRealStep(addRealStep);
         await timer(pause);
     };
-
-    // document.addEventListener('keydown', async event => {
-    //     if (event.key === 'Enter'
-    //         || event.key === 'Space'
-    //         || event.code === undefined)
-    //         await exerciseDone();
-    // });
 
     return <div className="exercise-progress">
 
